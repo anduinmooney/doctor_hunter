@@ -15,7 +15,30 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
-
 import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
+        viewListButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mListButton) {
+            String name = mNameEditText.getText().toString();
+            Intent intent = new Intent(MainActivity.this, ListActivity.class);
+            intent.putExtra("name", name);
+            startActivity(intent);
+        }
+    }
+
+}
 
 
