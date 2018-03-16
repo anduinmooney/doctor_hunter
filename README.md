@@ -47,8 +47,6 @@ _To help both the user and me understand what the development process looks like
 5. _Gather user input and pass it to another activity._
 * _I'm going to add a form once the app is launched asking for the user's name, and I'm going to display it on the following page. Later, I will be able to add user authentication to increase the usabilty of this. I might add the ability to add to the mock-list, if I can figure that out._
 
-__
-
 ## Installation
 * _Clone repository from github_
 * _Open repository file with Android Studio (3.0.1 is preferred, or else there may be errors)_
