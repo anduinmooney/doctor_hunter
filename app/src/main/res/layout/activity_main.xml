@@ -17,16 +17,32 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
-        android:text="Filler Title"
-        android:textColor="@color/colorDivider"
+        android:text="Spotify Me"
+        android:textColor="@color/colorAccent"
         android:textSize="60sp"
         android:textStyle="bold"
-        android:id="@+id/appNameTextView" />
+        android:id="@+id/appNameTextView"
+        />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/nameEditText"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="35dp"
+        android:text="Welcome!"
+        android:textColor="@color/colorDivider"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:id="@+id/appWelcomeTextView"
+        android:layout_centerHorizontal="true"/>
+
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/locationEditText"
+        android:id="@+id/nameEditText"
         android:background="@color/colorTextIcons"
         android:layout_above="@+id/nameButton"
         android:layout_marginBottom="10dp"
@@ -40,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Find Restaurants"
+        android:text="View List"
         android:background="@color/colorAccent"
         android:textColor="@color/colorTextIcons" />
 
