@@ -1,3 +1,13 @@
+# _Android Application Development: Week 1_
+
+#### _This is the foundation of an application that I'm currently working on._
+
+#### By _**Anduin Mooney**_
+
+## Description
+
+_This is the start of a month long project. I'm unsure with what API I want to use, so I'm still researching. Currently, I'm using Spotify as a current filler for the title and theme of the application. To learn more about what I have planned for the future, please read below_
+
 ## App Specifications & Development Details
 
 _This part of the README is desgined to help both the user and I to understand the kind of application I'm developing, the development process, and what still needs to be implemented (and how I will implement them) based on certain guidelines_
@@ -36,6 +46,30 @@ _To help both the user and me understand what the development process looks like
 * _Basic UI additions, going to style each activity to give it a professional feel_
 5. _Gather user input and pass it to another activity._
 * _I'm going to add a form once the app is launched asking for the user's name, and I'm going to display it on the following page. Later, I will be able to add user authentication to increase the usabilty of this. I might add the ability to add to the mock-list, if I can figure that out._
+
+__
+
+## Installation
+* _Clone repository from github_
+* _Open repository file with Android Studio (3.0.1 is preferred, or else there may be errors)_
+* _Create a virtual android device (Make sure it runs on marshmallow API23)_
+* _Run the application!_
+
+## Known Bugs
+
+_Currently my week 1 goals I set for myself haven't been met, and this is largely due to a huge timesink I had. I attempted to include a navbar in my application that ate up most of my time, so currently the application doesn't work as expected from week 1. I will keep this part of the README updated until my goals have been met_
+
+## Support and contact details
+
+_Contact me at anduinmooney@gmail.com_
+
+## Technologies Used
+
+_Java, Android, Git Bash, Android Studio_
+
+### License
+
+Copyright (c) 2018 **Anduin Mooney**
 
 
 
