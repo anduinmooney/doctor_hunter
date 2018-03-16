@@ -18,7 +18,7 @@ import android.widget.Button;
 
 import butterknife.BindView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 //        @BindView(R.id.log_in_out) ClipData.Item mLog_in_out;
         @BindView(R.id.nav_about) ClipData.Item mAbout;
 //        @BindView(R.id.nav_contact) ClipData.Item mContact;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-//        mAbout.setOnClickListener((View.OnClickListener) this);
+        mAbout.setOnClickListener(this);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -46,14 +46,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-//    @Override
-//    public void onClick(View v) {
-//        if (v == mAbout) {
-//            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-//            startActivity(intent);
-//
-//        }
-//    }
+    @Override
+    public void onClick(View v) {
+        if (v == mAbout) {
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
+
+        }
+    }
 
     @Override
     public void onBackPressed() {
@@ -87,28 +87,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.log_in_out) {
-            // Handle the camera action
-        } else if (id == R.id.list) {
-
-        } else if (id == R.id.nav_about) {
-            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-                startActivity(intent);
-
-        } else if (id == R.id.nav_contact) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
+//    @SuppressWarnings("StatementWithEmptyBody")
+//    @Override
+//    public boolean onNavigationItemSelected(MenuItem item) {
+//        // Handle navigation view item clicks here.
+//        int id = item.getItemId();
+//
+//        if (id == R.id.log_in_out) {
+//            // Handle the camera action
+//        } else if (id == R.id.list) {
+//
+//        } else if (id == R.id.nav_about) {
+//            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+//                startActivity(intent);
+//
+//        } else if (id == R.id.nav_contact) {
+//
+//        }
+//
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        drawer.closeDrawer(GravityCompat.START);
+//        return true;
+//    }
 
 
 }
