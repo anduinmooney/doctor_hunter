@@ -1,5 +1,6 @@
 package com.example.guest.app_foundation;
 
+import android.content.ClipData;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,8 +14,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import butterknife.BindView;
+
 public class MainActivity extends AppCompatActivity
+
         implements NavigationView.OnNavigationItemSelectedListener {
+        @BindView(R.id.log_in_out) ClipData.Item mLog_in_out;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
