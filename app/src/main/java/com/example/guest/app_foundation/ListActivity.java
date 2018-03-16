@@ -4,6 +4,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.GridView;
+import android.widget.ListAdapter;
 
 /**
  * Created by Anduin on 3/16/2018.
@@ -11,7 +12,7 @@ import android.widget.GridView;
 
 public class ListActivity extends AppCompatActivity {
     GridView gridView;
-    String[] mockData = new String[] {"Daft Punk", "Meteor", "Massive Attack", "Deon Custom", "Mr FijiWiji", "Rogue", "Caravan Palace", "Madeon", "DotEXE", "BreakBot", "Com Truise"};
+    String[] artists = new String[] {"Daft Punk", "Meteor", "Massive Attack", "Deon Custom", "Mr FijiWiji", "Rogue", "Caravan Palace", "Madeon", "DotEXE", "BreakBot", "Com Truise"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

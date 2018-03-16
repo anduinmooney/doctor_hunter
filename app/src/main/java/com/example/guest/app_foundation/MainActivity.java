@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.viewListButton) Button mViewListButton;
     @BindView(R.id.nameEditText) EditText mNameEditText;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
