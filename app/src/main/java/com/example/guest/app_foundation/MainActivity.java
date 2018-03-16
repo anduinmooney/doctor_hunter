@@ -1,6 +1,7 @@
 package com.example.guest.app_foundation;
 
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,13 +14,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import butterknife.BindView;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+//        @BindView(R.id.log_in_out) ClipData.Item mLog_in_out;
+        @BindView(R.id.nav_about) ClipData.Item mAbout;
+//        @BindView(R.id.nav_contact) ClipData.Item mContact;
+//        @BindView(R.id.list) ClipData.Item mList;
 
-        implements NavigationView.OnNavigationItemSelectedListener {
-        @BindView(R.id.log_in_out) ClipData.Item mLog_in_out;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +34,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
+//        mAbout.setOnClickListener((View.OnClickListener) this);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -39,7 +43,17 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
+
+//    @Override
+//    public void onClick(View v) {
+//        if (v == mAbout) {
+//            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+//            startActivity(intent);
+//
+//        }
+//    }
 
     @Override
     public void onBackPressed() {
@@ -84,6 +98,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.list) {
 
         } else if (id == R.id.nav_about) {
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intent);
 
         } else if (id == R.id.nav_contact) {
 
@@ -93,4 +109,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }
