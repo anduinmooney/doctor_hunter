@@ -1,6 +1,7 @@
 package com.example.guest.app_foundation;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 public class SpotifyAdapter extends BaseAdapter {
     private Context mContext;
     private String[] mArtists;
+    private Typeface mTypeface;
 
     @Override
     public int getCount() {
@@ -47,15 +49,17 @@ public class SpotifyAdapter extends BaseAdapter {
 
 
             artistView.setText(mArtists[position]);
+            artistView.setTypeface(mTypeface);
         } else {
             gridView = (View) convertView;
         }
         return gridView;
     }
 
-    public SpotifyAdapter (Context context, String[] artists){
+    public SpotifyAdapter (Context context, String[] artists, Typeface typeface){
         this.mContext = context;
         this.mArtists = artists;
+        this.mTypeface = typeface;
     }
 
 
