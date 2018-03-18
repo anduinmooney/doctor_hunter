@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v == mViewListButton) {
             String name = mNameEditText.getText().toString();
+            Toast.makeText(MainActivity.this, ("Welcome, " + name), Toast.LENGTH_LONG).show();
             Intent intent = new Intent(MainActivity.this, ListActivity.class);
             intent.putExtra("name", name);
             startActivity(intent);
