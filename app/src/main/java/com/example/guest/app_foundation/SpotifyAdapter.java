@@ -46,7 +46,7 @@ public class SpotifyAdapter extends BaseAdapter {
                     .findViewById(R.id.grid_item_artist);
 
 
-            artistView.setText("Daft Punk");
+            artistView.setText(mArtists[position]);
         } else {
             gridView = (View) convertView;
         }
