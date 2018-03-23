@@ -4,11 +4,13 @@
 
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/imageView"
-        android:src="@drawable/background"
-        android:scaleType="centerCrop" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/background" />
 
     <TextView
 
@@ -17,9 +19,9 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
-        android:text="Spotify Me"
-        android:textColor="@color/colorAccent"
-        android:textSize="60sp"
+        android:text="Find Me a Doc!"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="55sp"
         android:textStyle="bold"
         android:id="@+id/appNameTextView"
         />
@@ -32,7 +34,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="35dp"
         android:text="Welcome!"
-        android:textColor="@color/colorDivider"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="40sp"
         android:textStyle="bold"
         android:id="@+id/appWelcomeTextView"
