@@ -1,4 +1,4 @@
-# _Android Application Development: Week 1_
+# _Android Application Development: Week 2_
 
 #### _This is the foundation of an application that I'm currently working on._
 
