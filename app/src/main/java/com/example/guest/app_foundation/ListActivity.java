@@ -6,18 +6,26 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 import okhttp3.Call;
 import okhttp3.Callback;
 import java.io.IOException;
+import java.util.ArrayList;
+import static com.example.guest.app_foundation.R.id.listView;
+
 
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Response;
+
+
+
 
 /**
  * Created by Anduin on 3/16/2018.
@@ -26,9 +34,10 @@ import okhttp3.Response;
 public class ListActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.aboutButton) Button mAboutButton;
     @BindView(R.id.contactButton) Button mContactButton;
-    GridView gridView;
-    String[] artists = new String[] {"Daft Punk", "Meteor", "Massive Attack", "Deon Custom", "Mr FijiWiji", "Rogue", "Caravan Palace", "Madeon", "DotEXE", "Break Bot", "Com Truise", "Occams Laser"};
+    @BindView(listView) ListView mListView;
+
     public static final String TAG = ListActivity.class.getSimpleName();
+    public ArrayList<Doctor> doctors = new ArrayList<>();
 
 
 
@@ -37,8 +46,6 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/DEFTONE.ttf");
-        gridView = (GridView) findViewById(R.id.baseGridView);
-        gridView.setAdapter(new SpotifyAdapter(this, artists, typeface));
         ButterKnife.bind(this);
 
         mAboutButton.setOnClickListener(this);
@@ -63,6 +70,23 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
                 try {
                     String jsonData = response.body().string();
                     Log.v(TAG, jsonData);
+                    doctors = doctorService.processResults(response);
+                    ListActivity.this.runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            String[] doctorNames = new String[doctors.size()];
+                            for (int i = 0; i < doctorNames.length; i++) {
+                                doctorNames[i] = doctors.get(i).getFirstName();
+                            }
+                            ArrayAdapter adapter = new ArrayAdapter(ListActivity.this,
+                                    android.R.layout.simple_list_item_1, doctorNames);
+                            mListView.setAdapter(adapter);
+                        }
+
+
+                        });
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
