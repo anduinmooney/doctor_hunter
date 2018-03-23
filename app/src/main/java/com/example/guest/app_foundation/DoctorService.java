@@ -43,7 +43,7 @@ public class DoctorService {
         try {
             String jsonData = response.body().string();
             JSONObject betterDoctorJSON = new JSONObject(jsonData);
-            JSONArray dataJSON = betterDoctorJSON.getJSONArray("practices");
+            JSONArray dataJSON = betterDoctorJSON.getJSONArray("data");
             for (int i = 0; i < dataJSON.length(); i++) {
                 JSONObject doctorJSON = dataJSON.getJSONObject(i);
                 String firstName = doctorJSON.getString("name");

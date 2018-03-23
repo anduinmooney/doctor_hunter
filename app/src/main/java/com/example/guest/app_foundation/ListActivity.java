@@ -67,9 +67,9 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
-                    Log.v(TAG, jsonData);
+
+
+//                    Log.v(TAG, jsonData);
                     doctors = doctorService.processResults(response);
                     ListActivity.this.runOnUiThread(new Runnable() {
 
@@ -97,9 +97,7 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
 
                         });
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                
             }
 
 
