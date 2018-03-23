@@ -82,6 +82,16 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
                             ArrayAdapter adapter = new ArrayAdapter(ListActivity.this,
                                     android.R.layout.simple_list_item_1, doctorNames);
                             mListView.setAdapter(adapter);
+
+                            for (Doctor doctor : doctors) {
+                                Log.d(TAG, "First Name: " + doctor.getFirstName());
+//                                Log.d(TAG, "Phone: " + restaurant.getPhone());
+//                                Log.d(TAG, "Website: " + restaurant.getWebsite());
+//                                Log.d(TAG, "Image url: " + restaurant.getImageUrl());
+//                                Log.d(TAG, "Rating: " + Double.toString(restaurant.getRating()));
+//                                Log.d(TAG, "Address: " + android.text.TextUtils.join(", ", restaurant.getAddress()));
+//                                Log.d(TAG, "Categories: " + restaurant.getCategories().toString());
+                            }
                         }
 
 
