@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/android_app_week_1.iml" filepath="$PROJECT_DIR$/android_app_week_1.iml" />
-      <module fileurl="file://C:\Users\andui.DESKTOP-VLB3B84\Desktop\android_app_week_1\android_app_week_1.iml" filepath="C:\Users\andui.DESKTOP-VLB3B84\Desktop\android_app_week_1\android_app_week_1.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\andui.DESKTOP-VLB3B84\Desktop\android_app_week_1\app\app.iml" filepath="C:\Users\andui.DESKTOP-VLB3B84\Desktop\android_app_week_1\app\app.iml" />
       <module fileurl="file://C:\Users\andui.DESKTOP-VLB3B84\Desktop\android_app_week_1\appfoundation.iml" filepath="C:\Users\andui.DESKTOP-VLB3B84\Desktop\android_app_week_1\appfoundation.iml" />
     </modules>
   </component>
