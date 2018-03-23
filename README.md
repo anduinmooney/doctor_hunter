@@ -55,7 +55,10 @@ _To help both the user and me understand what the development process looks like
 
 ## Known Bugs
 
+
 _As of week 1, there is no current known bugs_
+
+
 
 ## Support and contact details
 
@@ -67,6 +70,8 @@ _Java, Android, Git Bash, Android Studio_
 
 ### License
 
+
 Copyright (c) 2018 **Anduin Mooney**
+
 
 
