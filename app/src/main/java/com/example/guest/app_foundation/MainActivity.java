@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.viewListButton) Button mViewListButton;
-    @BindView(R.id.nameEditText) EditText mNameEditText;
+    @BindView(R.id.locationEditText) EditText mLocationEditText;
 
 
     @Override
@@ -38,10 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mViewListButton) {
-            String name = mNameEditText.getText().toString();
-            Toast.makeText(MainActivity.this, ("Welcome, " + name), Toast.LENGTH_LONG).show();
+            String location = mLocationEditText.getText().toString();
+            Toast.makeText(MainActivity.this, ("Welcome, " + location), Toast.LENGTH_LONG).show();
             Intent intent = new Intent(MainActivity.this, ListActivity.class);
-            intent.putExtra("name", name);
+            intent.putExtra("location", location);
             startActivity(intent);
         }
     }
