@@ -55,7 +55,10 @@ _To help both the user and me understand what the development process looks like
 
 ## Known Bugs
 
-_Currently my week 1 goals I set for myself haven't been met, and this is largely due to a huge timesink I had. I attempted to include a navbar in my application that ate up most of my time, so currently the application doesn't work as expected from week 1. I will keep this part of the README updated until my goals have been met_
+
+_As of week 1, there is no current known bugs_
+
+
 
 ## Support and contact details
 
@@ -67,8 +70,8 @@ _Java, Android, Git Bash, Android Studio_
 
 ### License
 
-Copyright (c) 2018 **Anduin Mooney**
 
+Copyright (c) 2018 **Anduin Mooney**
 
 
 

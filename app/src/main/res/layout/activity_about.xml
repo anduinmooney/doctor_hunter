@@ -1,5 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/background">
+
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="About This Application"
+        android:textColor="@color/colorAccent"
+        android:textSize="25sp"
+        android:textStyle="italic"
+        android:id="@+id/appAboutTextTitle"
+        />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="This is the start of a month long project. I'm unsure with what API I want to use, so I'm still researching. Currently, I'm using Spotify as a current filler for the title and theme of the application. To learn more about what I have planned for the future, please checkout below."
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:id="@+id/appAboutTextView"
+        android:padding="25sp"
+        />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:text="I still don't know exactly what I'm going to make, but I have a rough idea as of now of what it could be. In the second week, I will be implementing an API, which I feel like would be the backbone of this project, so I'm still doing research on the kind of API I want to use. As of right now, I'm planning on using Spotify."
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:id="@+id/appAboutTextView2"
+        android:padding="25sp"
+        />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        android:text="@string/aboutText3"
+
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:id="@+id/appAboutTextView3"
+        android:padding="25sp"
+        />
 
 </RelativeLayout>

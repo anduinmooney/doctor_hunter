@@ -25,6 +25,18 @@
                 android:value="com.example.guest.app_foundation.MainActivity">
             </meta-data>
         </activity>
+        <activity android:name=".ContactActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.guest.app_foundation.ListActivity">
+            </meta-data>
+        </activity>
+        <activity android:name=".AboutActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.guest.app_foundation.ListActivity">
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>
