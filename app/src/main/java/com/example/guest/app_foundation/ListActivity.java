@@ -69,7 +69,7 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
             public void onResponse(Call call, Response response) throws IOException {
 
 
-//                    Log.v(TAG, jsonData);
+
                     doctors = doctorService.processResults(response);
                     ListActivity.this.runOnUiThread(new Runnable() {
 
@@ -85,7 +85,12 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
 
                             for (Doctor doctor : doctors) {
                                 Log.d(TAG, "First Name: " + doctor.getFirstName());
-//                                Log.d(TAG, "Phone: " + restaurant.getPhone());
+                                Log.d(TAG, "Last Name: " + doctor.getLastName());
+                                Log.d(TAG, "Phone: " + doctor.getPhone());
+                                Log.d(TAG, "Accepts New Patients: " + doctor.getNewPatient());
+                                Log.d(TAG, "Address: " + doctor.getAddress());
+                                Log.d(TAG, "Image Url: " + doctor.getImageUrl());
+                                Log.d(TAG, "Gender: " + doctor.getGender());
 //                                Log.d(TAG, "Website: " + restaurant.getWebsite());
 //                                Log.d(TAG, "Image url: " + restaurant.getImageUrl());
 //                                Log.d(TAG, "Rating: " + Double.toString(restaurant.getRating()));

@@ -43,16 +43,16 @@ public class DoctorService {
         try {
             String jsonData = response.body().string();
             JSONObject betterDoctorJSON = new JSONObject(jsonData);
-            JSONArray dataJSON = betterDoctorJSON.getJSONArray("practices");
+            JSONArray dataJSON = betterDoctorJSON.getJSONArray("data");
             for (int i = 0; i < dataJSON.length(); i++) {
                 JSONObject doctorJSON = dataJSON.getJSONObject(i);
-                String firstName = doctorJSON.getString("name");
-                String lastName = doctorJSON.getString("last_name");
-                String phone = doctorJSON.optString("number", "Phone not available");
-                String gender = doctorJSON.getString("gender");
-                String imageUrl = doctorJSON.getString("image_url");
-                String newPatient = doctorJSON.getString("accepts_new_patients");
-                String address = doctorJSON.getString("street");
+                String firstName = doctorJSON.getJSONObject("profile").getString("first_name");
+                String lastName = doctorJSON.getJSONObject("profile").getString("last_name");
+                String phone = doctorJSON.getJSONArray("practices").getJSONObject(0).getJSONArray("phones").getJSONObject(0).getString("number");
+                String gender = doctorJSON.getJSONObject("profile").getString("gender");
+                String imageUrl = doctorJSON.getJSONObject("profile").getString("image_url");
+                String newPatient = doctorJSON.getJSONArray("practices").getJSONObject(0).getString("accepts_new_patients");
+                String address = doctorJSON.getJSONArray("practices").getJSONObject(0).getJSONObject("visit_address").getString("street");
 
                 Doctor doctor = new Doctor(firstName, lastName, phone, gender,
                         imageUrl, newPatient, address);
@@ -70,3 +70,5 @@ public class DoctorService {
 
 
 }
+
+

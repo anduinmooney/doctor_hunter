@@ -10,7 +10,7 @@ public class Doctor {
     private String address;
     private String imageUrl;
 
-    public Doctor(String firstName, String lastName, String gender, String phone, String newPatient, String address, String imageUrl) {
+    public Doctor(String firstName, String lastName, String phone, String gender, String imageUrl, String newPatient, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
