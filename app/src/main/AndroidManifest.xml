@@ -21,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.ListActivity">
+        <activity android:name=".ui.DoctorActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.guest.app_foundation.ui.MainActivity">
@@ -30,13 +30,13 @@
         <activity android:name=".ui.ContactActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.guest.app_foundation.ui.ListActivity">
+                android:value="com.example.guest.app_foundation.ui.DoctorActivity">
             </meta-data>
         </activity>
         <activity android:name=".ui.AboutActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.guest.app_foundation.ui.ListActivity">
+                android:value="com.example.guest.app_foundation.ui.DoctorActivity">
             </meta-data>
         </activity>
     </application>

@@ -33,12 +33,12 @@ import okhttp3.Response;
  * Created by Anduin on 3/16/2018.
  */
 
-public class ListActivity extends AppCompatActivity implements View.OnClickListener {
+public class DoctorActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.aboutButton) Button mAboutButton;
     @BindView(R.id.contactButton) Button mContactButton;
     @BindView(listView) ListView mListView;
 
-    public static final String TAG = ListActivity.class.getSimpleName();
+    public static final String TAG = DoctorActivity.class.getSimpleName();
     public ArrayList<Doctor> doctors = new ArrayList<>();
 
 
@@ -73,7 +73,7 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
 
 
                     doctors = doctorService.processResults(response);
-                    ListActivity.this.runOnUiThread(new Runnable() {
+                    DoctorActivity.this.runOnUiThread(new Runnable() {
 
                         @Override
                         public void run() {
@@ -81,7 +81,7 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
                             for (int i = 0; i < doctorNames.length; i++) {
                                 doctorNames[i] = doctors.get(i).getFirstName();
                             }
-                            ArrayAdapter adapter = new ArrayAdapter(ListActivity.this,
+                            ArrayAdapter adapter = new ArrayAdapter(DoctorActivity.this,
                                     android.R.layout.simple_list_item_1, doctorNames);
                             mListView.setAdapter(adapter);
 
@@ -109,10 +109,10 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mAboutButton) {
-            Intent intent = new Intent(ListActivity.this, AboutActivity.class);
+            Intent intent = new Intent(DoctorActivity.this, AboutActivity.class);
             startActivity(intent);
         } else if (v == mContactButton) {
-            Intent intent = new Intent(ListActivity.this, ContactActivity.class);
+            Intent intent = new Intent(DoctorActivity.this, ContactActivity.class);
             startActivity(intent);
         }
 

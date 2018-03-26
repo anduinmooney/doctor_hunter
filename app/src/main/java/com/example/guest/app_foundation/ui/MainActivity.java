@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v == mViewListButton) {
             String location = mLocationEditText.getText().toString();
             Toast.makeText(MainActivity.this, ("Welcome, " + location), Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(MainActivity.this, ListActivity.class);
+            Intent intent = new Intent(MainActivity.this, DoctorActivity.class);
             intent.putExtra("location", location);
             startActivity(intent);
         }
