@@ -4,25 +4,27 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.guest.app_foundation.adapter.DoctorListAdapter;
 import com.example.guest.app_foundation.models.Doctor;
 import com.example.guest.app_foundation.services.DoctorService;
 import com.example.guest.app_foundation.R;
 
+import butterknife.BindView;
 import okhttp3.Call;
 import okhttp3.Callback;
 import java.io.IOException;
 import java.util.ArrayList;
-import static com.example.guest.app_foundation.R.id.listView;
 
 
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Response;
 
@@ -36,7 +38,8 @@ import okhttp3.Response;
 public class DoctorActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.aboutButton) Button mAboutButton;
     @BindView(R.id.contactButton) Button mContactButton;
-    @BindView(listView) ListView mListView;
+    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
+    private DoctorListAdapter mAdapter;
 
     public static final String TAG = DoctorActivity.class.getSimpleName();
     public ArrayList<Doctor> doctors = new ArrayList<>();
@@ -46,7 +49,7 @@ public class DoctorActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
+        setContentView(R.layout.activity_doctor);
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/DEFTONE.ttf");
         ButterKnife.bind(this);
 
@@ -70,39 +73,20 @@ public class DoctorActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onResponse(Call call, Response response) throws IOException {
 
-
-
                     doctors = doctorService.processResults(response);
                     DoctorActivity.this.runOnUiThread(new Runnable() {
 
                         @Override
                         public void run() {
-                            String[] doctorNames = new String[doctors.size()];
-                            for (int i = 0; i < doctorNames.length; i++) {
-                                doctorNames[i] = doctors.get(i).getFirstName();
+                            mAdapter = new DoctorListAdapter(getApplicationContext(), doctors);
+                            mRecyclerView.setAdapter(mAdapter);
+                            RecyclerView.LayoutManager layoutManager =
+                                    new LinearLayoutManager(DoctorActivity.this);
+                            mRecyclerView.setLayoutManager(layoutManager);
+                            mRecyclerView.setHasFixedSize(true);
                             }
-                            ArrayAdapter adapter = new ArrayAdapter(DoctorActivity.this,
-                                    android.R.layout.simple_list_item_1, doctorNames);
-                            mListView.setAdapter(adapter);
-
-                            for (Doctor doctor : doctors) {
-                                Log.d(TAG, "First Name: " + doctor.getFirstName());
-                                Log.d(TAG, "Last Name: " + doctor.getLastName());
-                                Log.d(TAG, "Phone: " + doctor.getPhone());
-                                Log.d(TAG, "Accepts New Patients: " + doctor.getNewPatient());
-                                Log.d(TAG, "Address: " + doctor.getAddress());
-                                Log.d(TAG, "Image Url: " + doctor.getImageUrl());
-                                Log.d(TAG, "Gender: " + doctor.getGender());
-                            }
-                        }
-
-
                         });
-
-                
             }
-
-
         });
     }
 
