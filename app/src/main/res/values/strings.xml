@@ -5,4 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="aboutText3">On this current version, Im going to be building the foundation of this app (UI, UX, storing data and objects, navigation) which hopefully will give me the freedom to be able to use any of the APIs Ive been researching.</string>
     <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

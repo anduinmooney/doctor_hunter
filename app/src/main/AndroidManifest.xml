@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.guest.app_foundation">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -24,21 +24,19 @@
         <activity android:name=".ui.DoctorActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.guest.app_foundation.ui.MainActivity">
-            </meta-data>
+                android:value="com.example.guest.app_foundation.ui.MainActivity"></meta-data>
         </activity>
         <activity android:name=".ui.ContactActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.guest.app_foundation.ui.DoctorActivity">
-            </meta-data>
+                android:value="com.example.guest.app_foundation.ui.DoctorActivity"></meta-data>
         </activity>
         <activity android:name=".ui.AboutActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.guest.app_foundation.ui.DoctorActivity">
-            </meta-data>
+                android:value="com.example.guest.app_foundation.ui.DoctorActivity"></meta-data>
         </activity>
+        <activity android:name=".ui.DoctorDetailActivity"></activity>
     </application>
 
 </manifest>
