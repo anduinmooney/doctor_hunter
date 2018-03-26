@@ -2,6 +2,8 @@ package com.example.guest.app_foundation;
 
 import android.support.test.rule.ActivityTestRule;
 
+import com.example.guest.app_foundation.ui.MainActivity;
+
 import org.junit.Rule;
 import org.junit.Test;
 

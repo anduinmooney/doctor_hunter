@@ -1,4 +1,7 @@
-package com.example.guest.app_foundation;
+package com.example.guest.app_foundation.services;
+import com.example.guest.app_foundation.Constants;
+import com.example.guest.app_foundation.models.Doctor;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

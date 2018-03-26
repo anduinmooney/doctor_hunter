@@ -1,4 +1,4 @@
-package com.example.guest.app_foundation;
+package com.example.guest.app_foundation.models;
 
 
 public class Doctor {

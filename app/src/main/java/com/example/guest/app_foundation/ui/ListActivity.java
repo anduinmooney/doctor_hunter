@@ -1,4 +1,4 @@
-package com.example.guest.app_foundation;
+package com.example.guest.app_foundation.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -8,10 +8,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.GridView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import com.example.guest.app_foundation.models.Doctor;
+import com.example.guest.app_foundation.services.DoctorService;
+import com.example.guest.app_foundation.R;
+
 import okhttp3.Call;
 import okhttp3.Callback;
 import java.io.IOException;
@@ -91,11 +93,6 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
                                 Log.d(TAG, "Address: " + doctor.getAddress());
                                 Log.d(TAG, "Image Url: " + doctor.getImageUrl());
                                 Log.d(TAG, "Gender: " + doctor.getGender());
-//                                Log.d(TAG, "Website: " + restaurant.getWebsite());
-//                                Log.d(TAG, "Image url: " + restaurant.getImageUrl());
-//                                Log.d(TAG, "Rating: " + Double.toString(restaurant.getRating()));
-//                                Log.d(TAG, "Address: " + android.text.TextUtils.join(", ", restaurant.getAddress()));
-//                                Log.d(TAG, "Categories: " + restaurant.getCategories().toString());
                             }
                         }
 
