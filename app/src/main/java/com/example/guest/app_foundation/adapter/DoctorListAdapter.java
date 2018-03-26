@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.guest.app_foundation.R;
 import com.example.guest.app_foundation.models.Doctor;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -51,6 +52,8 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         @BindView(R.id.phoneTextView) TextView mPhoneTextView;
         private Context mContext;
 
+
+
         public DoctorViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -62,6 +65,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
             mLastNameTextView.setText(doctor.getLastName());
             mAddressTextView.setText(doctor.getAddress());
             mPhoneTextView.setText(doctor.getPhone());
+            Picasso.with(mContext).load(doctor.getImageUrl()).into(mDoctorImageView);
         }
     }
 }
