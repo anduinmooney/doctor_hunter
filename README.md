@@ -27,8 +27,8 @@ _As I mentioned above, this project is going to have a 4 week development cycle,
 * _Open repository file with Android Studio (3.0.1 is preferred, or else there may be errors)_
 * _Create a virtual android device (Make sure it runs on marshmallow API23)_
 * _Create a gradle.properties file_
-* _Get an API token from https://developer.betterdoctor.com/ _
-* _Insert token inside gradle.properties file as "DoctorToken = "YOUR-API-TOKEN-HERE"_
+* _Get an API token from https://developer.betterdoctor.com/_
+* _Insert token inside gradle.properties file as "DoctorToken = "YOUR-API-TOKEN-HERE""_
 * _For input, please use a state abbreviation such as WA or wa. You're also welcome to add a city after for more specific results. EX: or-portland, wa-vancouver, ca-anaheim_
 
 ## Known Bugs
