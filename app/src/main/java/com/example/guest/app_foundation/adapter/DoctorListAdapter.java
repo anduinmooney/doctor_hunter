@@ -23,6 +23,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.DoctorViewHolder> {
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
     private ArrayList<Doctor> mDoctors = new ArrayList<>();
     private Context mContext;
 
@@ -79,7 +81,11 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
             mLastNameTextView.setText(doctor.getLastName());
             mAddressTextView.setText(doctor.getAddress());
             mPhoneTextView.setText(doctor.getPhone());
-            Picasso.with(mContext).load(doctor.getImageUrl()).into(mDoctorImageView);
+            Picasso.with(mContext)
+                    .load(doctor.getImageUrl())
+                    .resize(MAX_WIDTH, MAX_HEIGHT)
+                    .centerCrop()
+                    .into(mDoctorImageView);
         }
     }
 }
