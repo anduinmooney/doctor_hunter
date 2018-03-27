@@ -52,6 +52,7 @@
         android:hint="Enter Your Location (State Abbreviations)"
         android:layout_centerHorizontal="true" />
 
+
     <Button
         android:id="@+id/viewListButton"
         android:layout_width="match_parent"

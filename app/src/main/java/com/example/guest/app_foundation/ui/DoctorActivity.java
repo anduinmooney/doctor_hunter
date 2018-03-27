@@ -57,8 +57,10 @@ public class DoctorActivity extends AppCompatActivity implements View.OnClickLis
         mContactButton.setOnClickListener(this);
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
+        String query = intent.getStringExtra("query");
 
         getDoctors(location);
+        getDoctors(query);
     }
 
     private void getDoctors(String location) {

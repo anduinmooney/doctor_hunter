@@ -11,10 +11,19 @@ public class Doctor {
     private String newPatient;
     private String address;
     private String imageUrl;
+    private String officeName;
+    private String state;
+    private String zip;
+    private String language;
+    private String bio;
+    private String specialty;
+    private String specialtyDescription;
 
     public Doctor(){}
 
-    public Doctor(String firstName, String lastName, String phone, String gender, String imageUrl, String newPatient, String address) {
+
+
+    public Doctor(String firstName, String lastName, String phone, String gender, String imageUrl, String newPatient, String address, String officeName, String state, String zip, String language, String bio, String specialty, String specialtyDescription) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
@@ -22,6 +31,14 @@ public class Doctor {
         this.newPatient = newPatient;
         this.address = address;
         this.imageUrl = imageUrl;
+        this.officeName = officeName;
+        this.state = state;
+        this.zip = zip;
+        this.language = language;
+        this.bio = bio;
+
+        this.specialty = specialty;
+        this.specialtyDescription = specialtyDescription;
     }
 
     public String getFirstName() {
@@ -50,5 +67,32 @@ public class Doctor {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+    public String getOfficeName() {
+        return officeName;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public String getSpecialty() {
+        return specialty;
+    }
+
+    public String getSpecialtyDescription() {
+        return specialtyDescription;
     }
 }
