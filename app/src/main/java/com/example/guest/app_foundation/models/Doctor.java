@@ -11,10 +11,9 @@ public class Doctor {
     private String newPatient;
     private String address;
     private String imageUrl;
-    private String officeName;
+    private String city;
     private String state;
     private String zip;
-    private String language;
     private String bio;
     private String specialty;
     private String specialtyDescription;
@@ -23,7 +22,7 @@ public class Doctor {
 
 
 
-    public Doctor(String firstName, String lastName, String phone, String gender, String imageUrl, String newPatient, String address, String officeName, String state, String zip, String language, String bio, String specialty, String specialtyDescription) {
+    public Doctor(String firstName, String lastName, String phone, String gender, String imageUrl, String newPatient, String address, String city, String state, String zip, String bio, String specialty, String specialtyDescription) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
@@ -31,10 +30,9 @@ public class Doctor {
         this.newPatient = newPatient;
         this.address = address;
         this.imageUrl = imageUrl;
-        this.officeName = officeName;
+        this.city = city;
         this.state = state;
         this.zip = zip;
-        this.language = language;
         this.bio = bio;
 
         this.specialty = specialty;
@@ -69,7 +67,7 @@ public class Doctor {
         return imageUrl;
     }
     public String getOfficeName() {
-        return officeName;
+        return city;
     }
 
     public String getState() {
@@ -80,9 +78,6 @@ public class Doctor {
         return zip;
     }
 
-    public String getLanguage() {
-        return language;
-    }
 
     public String getBio() {
         return bio;
