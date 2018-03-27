@@ -65,48 +65,86 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/saveDoctorButton"
+            android:paddingLeft="30dp"
+            android:paddingTop="20dp"
+            android:paddingRight="30dp">
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_above="@+id/saveDoctorButton"
-                android:paddingLeft="30dp"
-                android:paddingTop="20dp"
-                android:paddingRight="30dp">
 
 
 
                 <TextView
+                    android:id="@+id/phoneTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="(503) 223-1282"
-                    android:id="@+id/phoneTextView"
+                    android:layout_marginBottom="10dp"
                     android:drawableLeft="@drawable/ic_local_phone_white_24dp"
                     android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:text="(503) 223-1282"
+                    android:textColor="@color/colorTextIcons"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/addressTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:drawablePadding="4dp"
+                    android:gravity="center_vertical"
+                    android:text="10114 N Leonard ST, "
                     android:textColor="@color/colorTextIcons"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center"/>
+                    android:layout_below="@+id/phoneTextView"/>
 
+                <TextView
+                    android:id="@+id/cityTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:drawablePadding="4dp"
+                    android:gravity="center_vertical"
+                    android:text="Portland"
+                    android:textColor="@color/colorTextIcons"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/addressTextView"
+                    android:layout_below="@+id/phoneTextView"/>
+
+                <TextView
+                    android:id="@+id/stateTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:drawablePadding="4dp"
+                    android:gravity="center_vertical"
+                    android:text=" OR"
+                    android:textColor="@color/colorTextIcons"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/cityTextView"
+                    android:layout_below="@+id/phoneTextView"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10114 N Leonard ST. Portland, Oregon, 97203"
+                    android:text=" 97203"
                     android:drawablePadding="4dp"
-                    android:id="@+id/addressTextView"
+                    android:id="@+id/zipTextView"
                     android:textColor="@color/colorTextIcons"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="10dp"
-                    android:gravity="center_vertical"/>
+                    android:gravity="center_vertical"
+                    android:layout_toRightOf="@+id/stateTextView"
+                    android:layout_below="@+id/phoneTextView"/>
 
-            </LinearLayout>
 
             <Button
                 android:layout_width="match_parent"

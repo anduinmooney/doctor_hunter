@@ -32,6 +32,9 @@ public class DoctorDetailFragment extends Fragment implements View.OnClickListen
     @BindView(R.id.genderTextView) TextView mGenderLabel;
     @BindView(R.id.newPatientTextView) TextView mNewPatientLabel;
     @BindView(R.id.addressTextView) TextView mStreetLabel;
+    @BindView(R.id.cityTextView) TextView mCityLabel;
+    @BindView(R.id.stateTextView) TextView mStateLabel;
+    @BindView(R.id.zipTextView) TextView mZipLabel;
     @BindView(R.id.saveDoctorButton) TextView mSaveDoctorButton;
 
 
@@ -71,6 +74,9 @@ public class DoctorDetailFragment extends Fragment implements View.OnClickListen
         mGenderLabel.setText(mDoctor.getGender());
         mNewPatientLabel.setText("Accepting New Patients: " + mDoctor.getNewPatient());
         mStreetLabel.setText(mDoctor.getAddress());
+        mCityLabel.setText(", " + mDoctor.getCity());
+        mStateLabel.setText(" " + mDoctor.getState());
+        mZipLabel.setText(" " + mDoctor.getZip());
 
         return view;
     }

@@ -78,6 +78,10 @@ public class Doctor {
         return zip;
     }
 
+    public String getCity() {
+        return city;
+    }
+
 
     public String getBio() {
         return bio;
