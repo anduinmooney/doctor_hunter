@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v == mViewListButton) {
             String location = mLocationEditText.getText().toString();
-            Toast.makeText(MainActivity.this, ("Welcome, " + location), Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, ("Showing list of doctors near " + location), Toast.LENGTH_LONG).show();
             Intent intent = new Intent(MainActivity.this, DoctorActivity.class);
             intent.putExtra("location", location);
             startActivity(intent);
