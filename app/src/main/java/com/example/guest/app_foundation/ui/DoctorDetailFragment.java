@@ -23,7 +23,6 @@ import butterknife.ButterKnife;
  */
 public class DoctorDetailFragment extends Fragment {
     @BindView(R.id.doctorFirstNameTextView) TextView mFirstNameLabel;
-    @BindView(R.id.doctorLastNameTextView) TextView mLastNameLabel;
     @BindView(R.id.doctorImageView) ImageView mImageLabel;
     @BindView(R.id.phoneTextView) TextView mPhoneLabel;
     @BindView(R.id.genderTextView) TextView mGenderLabel;
@@ -58,7 +57,6 @@ public class DoctorDetailFragment extends Fragment {
         Picasso.with(view.getContext()).load(mDoctor.getImageUrl()).into(mImageLabel);
 
         mFirstNameLabel.setText(mDoctor.getFirstName());
-        mLastNameLabel.setText(mDoctor.getLastName());
         mPhoneLabel.setText(mDoctor.getPhone());
         mGenderLabel.setText(mDoctor.getGender());
         mNewPatientLabel.setText("Accepting New Patients: " + mDoctor.getNewPatient());
