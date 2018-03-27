@@ -1,6 +1,8 @@
 package com.example.guest.app_foundation.models;
 
+import org.parceler.Parcel;
 
+@Parcel
 public class Doctor {
     private String firstName;
     private String lastName;
@@ -9,6 +11,8 @@ public class Doctor {
     private String newPatient;
     private String address;
     private String imageUrl;
+
+    public Doctor(){}
 
     public Doctor(String firstName, String lastName, String phone, String gender, String imageUrl, String newPatient, String address) {
         this.firstName = firstName;
