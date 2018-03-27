@@ -66,7 +66,7 @@ public class DoctorDetailFragment extends Fragment {
         mGenderLabel.setText(mDoctor.getGender());
         mNewPatientLabel.setText("Accepting New Patients: " + mDoctor.getNewPatient());
         mStreetLabel.setText(mDoctor.getAddress());
-        
+
         return view;
     }
 
