@@ -86,14 +86,6 @@ public class DoctorActivity extends AppCompatActivity implements View.OnClickLis
                                     new LinearLayoutManager(DoctorActivity.this);
                             mRecyclerView.setLayoutManager(layoutManager);
                             mRecyclerView.setHasFixedSize(true);
-                            for (Doctor doctor : doctors) {
-                                Log.d(TAG, "Office: " + doctor.getOfficeName());
-                                Log.d(TAG, "State: " + doctor.getState());
-                                Log.d(TAG, "Zip: " + doctor.getZip());
-                                Log.d(TAG, "Bio: " + doctor.getBio());
-                                Log.d(TAG, "Specialty: " + doctor.getSpecialty());
-
-                            }
                             }
                         });
             }
