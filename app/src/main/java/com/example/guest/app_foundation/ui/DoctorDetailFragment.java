@@ -1,6 +1,8 @@
 package com.example.guest.app_foundation.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -21,7 +23,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DoctorDetailFragment extends Fragment {
+public class DoctorDetailFragment extends Fragment implements View.OnClickListener{
     private static final int MAX_WIDTH = 400;
     private static final int MAX_HEIGHT = 300;
     @BindView(R.id.doctorFirstNameTextView) TextView mFirstNameLabel;
@@ -56,6 +58,8 @@ public class DoctorDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_doctor_detail, container, false);
         ButterKnife.bind(this, view);
 
+        mPhoneLabel.setOnClickListener(this);
+
         Picasso.with(view.getContext())
                 .load(mDoctor.getImageUrl())
                 .resize(MAX_WIDTH, MAX_HEIGHT)
@@ -69,6 +73,17 @@ public class DoctorDetailFragment extends Fragment {
         mStreetLabel.setText(mDoctor.getAddress());
 
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if (v == mPhoneLabel) {
+            Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
+                    Uri.parse("tel:" + mDoctor.getPhone()));
+            startActivity(phoneIntent);
+        }
+
     }
 
 }
