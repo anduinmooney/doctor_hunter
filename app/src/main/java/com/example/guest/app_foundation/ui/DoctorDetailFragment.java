@@ -2,7 +2,7 @@ package com.example.guest.app_foundation.ui;
 
 
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,9 +46,6 @@ public class DoctorDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mDoctor = Parcels.unwrap(getArguments().getParcelable("doctor"));
-    }
-
-    public DoctorDetailFragment() {
     }
 
 
