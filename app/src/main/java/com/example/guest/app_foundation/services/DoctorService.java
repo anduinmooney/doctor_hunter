@@ -61,10 +61,9 @@ public class DoctorService {
                 String zip = doctorJSON.getJSONArray("practices").getJSONObject(0).getJSONObject("visit_address").getString("zip");
                 String bio = doctorJSON.getJSONObject("profile").getString("bio");
                 String specialty = doctorJSON.getJSONArray("specialties").getJSONObject(0).getString("name");
-                String specialtyDescription = doctorJSON.getJSONArray("specialties").getJSONObject(0).getString("description");
 
                 Doctor doctor = new Doctor(firstName, lastName, phone, gender,
-                        imageUrl, newPatient, address, city, state, zip, bio, specialty, specialtyDescription);
+                        imageUrl, newPatient, address, city, state, zip, bio, specialty);
                 doctors.add(doctor);
             }
         }

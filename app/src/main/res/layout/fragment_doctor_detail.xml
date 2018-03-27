@@ -50,6 +50,17 @@
                 android:layout_alignParentEnd="true"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Massage Therapist"
+                android:id="@+id/specialtyTextView"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                android:layout_below="@+id/genderTextView"/>
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -144,6 +155,21 @@
                     android:gravity="center_vertical"
                     android:layout_toRightOf="@+id/stateTextView"
                     android:layout_below="@+id/phoneTextView"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder"
+                android:drawablePadding="4dp"
+                android:id="@+id/bioTextView"
+                android:textColor="@color/colorTextIcons"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:layout_below="@+id/addressTextView"/>
+
+
 
 
             <Button

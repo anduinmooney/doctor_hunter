@@ -35,6 +35,8 @@ public class DoctorDetailFragment extends Fragment implements View.OnClickListen
     @BindView(R.id.cityTextView) TextView mCityLabel;
     @BindView(R.id.stateTextView) TextView mStateLabel;
     @BindView(R.id.zipTextView) TextView mZipLabel;
+    @BindView(R.id.bioTextView) TextView mBioLabel;
+    @BindView(R.id.specialtyTextView) TextView mSpecialtyLabel;
     @BindView(R.id.saveDoctorButton) TextView mSaveDoctorButton;
 
 
@@ -77,6 +79,8 @@ public class DoctorDetailFragment extends Fragment implements View.OnClickListen
         mCityLabel.setText(", " + mDoctor.getCity());
         mStateLabel.setText(" " + mDoctor.getState());
         mZipLabel.setText(" " + mDoctor.getZip());
+        mBioLabel.setText(mDoctor.getBio());
+        mSpecialtyLabel.setText(mDoctor.getSpecialty());
 
         return view;
     }

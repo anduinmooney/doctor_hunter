@@ -92,7 +92,6 @@ public class DoctorActivity extends AppCompatActivity implements View.OnClickLis
                                 Log.d(TAG, "Zip: " + doctor.getZip());
                                 Log.d(TAG, "Bio: " + doctor.getBio());
                                 Log.d(TAG, "Specialty: " + doctor.getSpecialty());
-                                Log.d(TAG, "Specialty Description: " + doctor.getSpecialtyDescription());
 
                             }
                             }

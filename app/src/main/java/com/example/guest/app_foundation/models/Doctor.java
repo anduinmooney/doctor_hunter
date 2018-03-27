@@ -16,13 +16,12 @@ public class Doctor {
     private String zip;
     private String bio;
     private String specialty;
-    private String specialtyDescription;
 
     public Doctor(){}
 
 
 
-    public Doctor(String firstName, String lastName, String phone, String gender, String imageUrl, String newPatient, String address, String city, String state, String zip, String bio, String specialty, String specialtyDescription) {
+    public Doctor(String firstName, String lastName, String phone, String gender, String imageUrl, String newPatient, String address, String city, String state, String zip, String bio, String specialty) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
@@ -34,9 +33,7 @@ public class Doctor {
         this.state = state;
         this.zip = zip;
         this.bio = bio;
-
         this.specialty = specialty;
-        this.specialtyDescription = specialtyDescription;
     }
 
     public String getFirstName() {
@@ -91,7 +88,4 @@ public class Doctor {
         return specialty;
     }
 
-    public String getSpecialtyDescription() {
-        return specialtyDescription;
-    }
 }
