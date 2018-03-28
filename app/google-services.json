@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "126417359500",
+    "firebase_url": "https://doctor-hunter.firebaseio.com",
+    "project_id": "doctor-hunter",
+    "storage_bucket": "doctor-hunter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:126417359500:android:4d557a290b31b9ac",
+        "android_client_info": {
+          "package_name": "com.example.guest.app_foundation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "126417359500-r36nr36qil37gqq9bfukvl3387cbeeld.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.guest.app_foundation",
+            "certificate_hash": "a83947189986f1d03ca42c6ed600959fd12fb0c7"
+          }
+        },
+        {
+          "client_id": "126417359500-233l4s045b5g74iv0h8nbakdl3ao6959.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdqA-qrv5oanXOXdqElJBKjwK-RAyeH_A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "126417359500-233l4s045b5g74iv0h8nbakdl3ao6959.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
