@@ -1,4 +1,4 @@
-# _Android Application Development: Week 2_
+# _Better Doctor Application Development: Week 3_
 
 #### _This is an application that shows doctors near you!_
 
