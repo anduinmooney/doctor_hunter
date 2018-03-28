@@ -63,9 +63,6 @@ public class Doctor {
     public String getImageUrl() {
         return imageUrl;
     }
-    public String getOfficeName() {
-        return city;
-    }
 
     public String getState() {
         return state;

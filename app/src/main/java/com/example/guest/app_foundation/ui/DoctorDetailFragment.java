@@ -10,9 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.guest.app_foundation.Constants;
 import com.example.guest.app_foundation.R;
 import com.example.guest.app_foundation.models.Doctor;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -82,6 +86,8 @@ public class DoctorDetailFragment extends Fragment implements View.OnClickListen
         mBioLabel.setText(mDoctor.getBio());
         mSpecialtyLabel.setText(mDoctor.getSpecialty());
 
+        mSaveDoctorButton.setOnClickListener(this);
+
         return view;
     }
 
@@ -92,6 +98,14 @@ public class DoctorDetailFragment extends Fragment implements View.OnClickListen
             Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
                     Uri.parse("tel:" + mDoctor.getPhone()));
             startActivity(phoneIntent);
+        }
+
+        if (v == mSaveDoctorButton) {
+            DatabaseReference doctorRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_DOCTORS);
+            doctorRef.push().setValue(mDoctor);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
 
     }
