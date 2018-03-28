@@ -1,11 +1,13 @@
 package com.example.guest.app_foundation.ui;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.guest.app_foundation.Constants;
@@ -19,6 +21,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.viewListButton) Button mViewListButton;
     @BindView(R.id.locationEditText) EditText mLocationEditText;
+    @BindView(R.id.appNameTextView) TextView mAppNameTextView;
 
     private DatabaseReference mSearchedLocationReference;
 
@@ -34,6 +37,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .getReference()
                 .child(Constants.FIREBASE_CHILD_SEARCHED_LOCATION);
 
+        mAppNameTextView = (TextView) findViewById(R.id.appNameTextView);
+        Typeface yorkwhiteletter = Typeface.createFromAsset(getAssets(), "fonts/KGDefyingGravity.ttf");
+        mAppNameTextView.setTypeface(yorkwhiteletter);
+
         mViewListButton.setOnClickListener(this);
     }
 
@@ -46,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, DoctorActivity.class);
             intent.putExtra("location", location);
             startActivity(intent);
+
         }
     }
 
