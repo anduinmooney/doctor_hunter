@@ -1,8 +1,10 @@
 package com.example.guest.app_foundation.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.guest.app_foundation.Constants;
 import com.example.guest.app_foundation.adapter.DoctorListAdapter;
 import com.example.guest.app_foundation.models.Doctor;
 import com.example.guest.app_foundation.services.DoctorService;
@@ -41,6 +44,9 @@ public class DoctorActivity extends AppCompatActivity implements View.OnClickLis
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     private DoctorListAdapter mAdapter;
 
+    private SharedPreferences mSharedPreferences;
+    private String mRecentAddress;
+
     public static final String TAG = DoctorActivity.class.getSimpleName();
     public ArrayList<Doctor> doctors = new ArrayList<>();
 
@@ -52,6 +58,12 @@ public class DoctorActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_doctor);
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/DEFTONE.ttf");
         ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+        if (mRecentAddress != null) {
+            getDoctors(mRecentAddress);
+        }
 
         mAboutButton.setOnClickListener(this);
         mContactButton.setOnClickListener(this);

@@ -1,8 +1,10 @@
 package com.example.guest.app_foundation.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private DatabaseReference mSearchedLocationReference;
     private ValueEventListener mSearchedLocationReferenceListener;
+
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
 
 
     @Override
@@ -65,6 +70,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Typeface yorkwhiteletter = Typeface.createFromAsset(getAssets(), "fonts/KGDefyingGravity.ttf");
         mAppNameTextView.setTypeface(yorkwhiteletter);
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
         mViewListButton.setOnClickListener(this);
         mSavedDoctorsButton.setOnClickListener(this);
 
@@ -79,6 +87,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v == mViewListButton) {
             String location = mLocationEditText.getText().toString();
+            if(!(location).equals("")) {
+                addToSharedPreferences(location);
+            }
+            addToSharedPreferences(location);
             saveLocationToFirebase(location);
             Toast.makeText(MainActivity.this, ("Showing list of doctors near " + location), Toast.LENGTH_LONG).show();
             Intent intent = new Intent(MainActivity.this, DoctorActivity.class);
@@ -89,6 +101,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, SavedDoctorListActivity.class);
             startActivity(intent);
         }
+    }
+
+    private void addToSharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
     }
 
     public void saveLocationToFirebase(String location) {
