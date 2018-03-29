@@ -16,6 +16,7 @@ public class Doctor {
     private String zip;
     private String bio;
     private String specialty;
+    private String pushId;
 
     public Doctor(){}
 
@@ -76,6 +77,9 @@ public class Doctor {
         return city;
     }
 
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
 
     public String getBio() {
         return bio;

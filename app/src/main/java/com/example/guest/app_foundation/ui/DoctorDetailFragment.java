@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.example.guest.app_foundation.Constants;
 import com.example.guest.app_foundation.R;
 import com.example.guest.app_foundation.models.Doctor;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -101,10 +103,17 @@ public class DoctorDetailFragment extends Fragment implements View.OnClickListen
         }
 
         if (v == mSaveDoctorButton) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
             DatabaseReference doctorRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_DOCTORS);
-            doctorRef.push().setValue(mDoctor);
+                    .getReference(Constants.FIREBASE_CHILD_DOCTORS)
+                    .child(uid);
+            DatabaseReference pushRef = doctorRef.push();
+            String pushId = pushRef.getKey();
+            mDoctor.setPushId(pushId);
+            pushRef.setValue(mDoctor);
+
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
 
