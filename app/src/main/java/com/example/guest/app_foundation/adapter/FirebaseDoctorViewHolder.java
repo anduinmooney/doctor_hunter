@@ -45,6 +45,7 @@ public class FirebaseDoctorViewHolder extends RecyclerView.ViewHolder implements
         TextView nameTextView = (TextView) mView.findViewById(R.id.doctorFirstNameTextView);
         TextView phoneTextView = (TextView) mView.findViewById(R.id.phoneTextView);
         TextView addressTextView = (TextView) mView.findViewById(R.id.addressTextView);
+        TextView lastNameTextView = (TextView) mView.findViewById(R.id.doctorLastNameTextView);
 
         Picasso.with(mContext)
                 .load(doctor.getImageUrl())
@@ -55,6 +56,7 @@ public class FirebaseDoctorViewHolder extends RecyclerView.ViewHolder implements
         nameTextView.setText(doctor.getFirstName());
         phoneTextView.setText(doctor.getPhone());
         addressTextView.setText(doctor.getAddress());
+        lastNameTextView.setText(doctor.getLastName());
     }
 
     @Override

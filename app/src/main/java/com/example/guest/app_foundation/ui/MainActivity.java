@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.viewListButton) Button mViewListButton;
     @BindView(R.id.locationEditText) EditText mLocationEditText;
     @BindView(R.id.appNameTextView) TextView mAppNameTextView;
+    @BindView(R.id.savedDoctorsButton) Button mSavedDoctorsButton;
 
     private DatabaseReference mSearchedLocationReference;
     private ValueEventListener mSearchedLocationReferenceListener;
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAppNameTextView.setTypeface(yorkwhiteletter);
 
         mViewListButton.setOnClickListener(this);
+        mSavedDoctorsButton.setOnClickListener(this);
 
     }
     @Override
@@ -82,7 +84,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, DoctorActivity.class);
             intent.putExtra("location", location);
             startActivity(intent);
-
+        }
+        if (v == mSavedDoctorsButton) {
+            Intent intent = new Intent(MainActivity.this, SavedDoctorListActivity.class);
+            startActivity(intent);
         }
     }
 
