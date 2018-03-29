@@ -96,6 +96,9 @@ public class DoctorActivity extends AppCompatActivity implements View.OnClickLis
         MenuItem menuItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
 
+        searchView.setQueryHint("Search by State Abbreviation...");
+
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
             @Override
