@@ -30,7 +30,7 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/locationEditText"
+        android:layout_above="@+id/viewListButton"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="35dp"
         android:text="Welcome!"
@@ -39,18 +39,6 @@
         android:textStyle="bold"
         android:id="@+id/appWelcomeTextView"
         android:layout_centerHorizontal="true"/>
-
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/locationEditText"
-        android:background="@color/colorTextIcons"
-        android:layout_above="@+id/viewListButton"
-        android:layout_marginBottom="10dp"
-        android:padding="5dp"
-        android:hint="Enter Your Location (State Abbreviations)"
-        android:layout_centerHorizontal="true" />
 
 
     <Button

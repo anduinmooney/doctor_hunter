@@ -34,7 +34,7 @@ _As I mentioned above, this project is going to have a 4 week development cycle,
 ## Known Bugs
 
 
-_For some reason, the api call will randomly not work. This seems to happen 1/4th-1/5th of the time, and I'm currently looking for a workaround_
+_No bugs are known. Adding a search view fixed my issues with getting the API call to work 100% of the time, not entirely sure why as of yet, but I can't complain_
 
 
 ## Support and contact details
