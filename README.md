@@ -34,7 +34,7 @@ _As I mentioned above, this project is going to have a 4 week development cycle,
 ## Known Bugs
 
 
-_As of week 2, there are no known bugs_
+_For some reason, the api call will randomly not work. This seems to happen 1/4th-1/5th of the time, and I'm currently looking for a workaround_
 
 
 ## Support and contact details
