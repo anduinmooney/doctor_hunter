@@ -24,19 +24,20 @@
         <activity android:name=".ui.DoctorActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.guest.app_foundation.ui.MainActivity"></meta-data>
+                android:value="com.example.guest.app_foundation.ui.MainActivity" />
         </activity>
         <activity android:name=".ui.ContactActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.guest.app_foundation.ui.DoctorActivity"></meta-data>
+                android:value="com.example.guest.app_foundation.ui.DoctorActivity" />
         </activity>
         <activity android:name=".ui.AboutActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.guest.app_foundation.ui.DoctorActivity"></meta-data>
+                android:value="com.example.guest.app_foundation.ui.DoctorActivity" />
         </activity>
-        <activity android:name=".ui.DoctorDetailActivity"></activity>
+        <activity android:name=".ui.DoctorDetailActivity" />
+        <activity android:name=".ui.SavedDoctorListActivity"></activity>
     </application>
 
 </manifest>
