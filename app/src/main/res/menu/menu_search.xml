@@ -5,7 +5,6 @@
         android:icon="@drawable/ic_search_white_24dp"
         app:showAsAction="always"
         app:actionViewClass="android.support.v7.widget.SearchView"
-        android:title="Search"
-        android:hint="TESTING12333">
+        android:title="Search">
     </item>
 </menu>

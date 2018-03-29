@@ -9,4 +9,5 @@
     <color name="colorSecondaryText">#757575</color>
     <color name="colorDivider">#BDBDBD</color>
     <color name="background">#000000</color>
+    <color name="button">#c61111</color>
 </resources>

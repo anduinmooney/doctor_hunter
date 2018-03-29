@@ -15,11 +15,6 @@
             android:name=".ui.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/NoActionBarTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ui.DoctorActivity">
             <meta-data
@@ -37,7 +32,14 @@
                 android:value="com.example.guest.app_foundation.ui.DoctorActivity" />
         </activity>
         <activity android:name=".ui.DoctorDetailActivity" />
-        <activity android:name=".ui.SavedDoctorListActivity"></activity>
+        <activity android:name=".ui.SavedDoctorListActivity" />
+        <activity android:name=".ui.CreateAccountActivity" />
+        <activity android:name=".ui.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
