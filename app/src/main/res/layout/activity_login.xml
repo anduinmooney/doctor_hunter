@@ -45,28 +45,32 @@
             android:textSize="20sp" />
 
 
-        <Button
-            android:id="@+id/passwordLoginButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Log in"
-            android:background="@color/button"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/colorTextIcons" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/colorTextIcons"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:text="Don't have an account? Sign up here!"
-            android:id="@+id/registerTextView"
-            android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/passwordLoginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_toStartOf="@+id/loginTextView"
+        android:background="@color/button"
+        android:padding="10dp"
+        android:text="Log in"
+        android:textColor="@color/colorTextIcons" />
+
+    <Button
+        android:id="@+id/registerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_toEndOf="@+id/loginTextView"
+        android:background="@color/button"
+        android:padding="10dp"
+        android:text="Sign up"
+        android:textColor="@color/colorTextIcons"
+         />
 
     <TextView
         android:layout_width="wrap_content"
