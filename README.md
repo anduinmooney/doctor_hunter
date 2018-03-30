@@ -1,16 +1,16 @@
 # _Better Doctor Application Development: Week 3_
 
-#### _This is an application that shows doctors near you!_
+#### _This is an application that shows doctors near you! Now featuring Firebase!_
 
 #### By _**Anduin Mooney**_
 
 ## Description
 
-_This is a WIP application that will grab the users location and show doctors in their area using the BetterDoctor API_
+_This is a WIP application that will grab the users location and show doctors in their area using the BetterDoctor API, along with Firebase_
 
 ## App Specifications & Development Details
 
-_This part of the README is desgined to help both the user and I to understand the kind of application I'm developing, the development process, and what still needs to be implemented (and how I will implement them) based on certain guidelines_
+_This part of the README is designed to help both the user and I to understand the kind of application I'm developing, the development process, and what still needs to be implemented (and how I will implement them) based on certain guidelines_
 
 
 ### Development Schedule
@@ -20,7 +20,7 @@ _As I mentioned above, this project is going to have a 4 week development cycle,
 * _Week 1: UI, UX, storing inputs and navigation_
 * _Week 2: Tracking and Collecting Objects from an API_
 * _Week 3: User authentication and firebase_
-* _Week 4: Currenty unknown until I progress_
+* _Week 4: Gestures, movement, and camera_
 
 ## Installation
 * _Clone repository from github_
@@ -29,6 +29,7 @@ _As I mentioned above, this project is going to have a 4 week development cycle,
 * _Create a gradle.properties file_
 * _Get an API token from https://developer.betterdoctor.com/_
 * _Insert token inside gradle.properties file as "DoctorToken = "YOUR-API-TOKEN-HERE""_
+* _Make an account, you must use a valid email and password that's 6 characters or more_
 * _For input, please use a state abbreviation such as WA or wa. You're also welcome to add a city after for more specific results. EX: or-portland, wa-vancouver, ca-anaheim_
 
 ## Known Bugs
@@ -43,7 +44,7 @@ _Contact me at anduinmooney@gmail.com_
 
 ## Technologies Used
 
-_Java, Android, Git Bash, Android Studio, betterDoctor API_
+_Java, Android, Git Bash, Android Studio, betterDoctor API, Firebase_
 
 ### License
 
