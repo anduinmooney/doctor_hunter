@@ -16,6 +16,7 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/linearLayout">
 
+
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
@@ -75,6 +76,22 @@
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_above="@+id/linearLayout"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:id="@+id/loginTextView"/>
+
+    <TextView
+
+        android:id="@+id/appNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:text="DOCTOR HUNTER"
+        android:layout_above="@+id/loginTextView"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="75sp"
+        android:textStyle="bold" />
+
 
 </RelativeLayout>

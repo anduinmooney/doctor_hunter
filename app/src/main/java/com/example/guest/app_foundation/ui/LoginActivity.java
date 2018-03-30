@@ -3,6 +3,7 @@ package com.example.guest.app_foundation.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.passwordLoginButton) Button mPasswordLoginButton;
     @BindView(R.id.emailEditText) EditText mEmailEditText;
     @BindView(R.id.passwordEditText) EditText mPasswordEditText;
+    @BindView(R.id.appNameTextView) TextView mAppNameTextView;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -46,6 +48,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mAuth = FirebaseAuth.getInstance();
 
         mPasswordLoginButton.setOnClickListener(this);
+
+        mAppNameTextView = (TextView) findViewById(R.id.appNameTextView);
+        Typeface yorkwhiteletter = Typeface.createFromAsset(getAssets(), "fonts/KGDefyingGravity.ttf");
+        mAppNameTextView.setTypeface(yorkwhiteletter);
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
 
