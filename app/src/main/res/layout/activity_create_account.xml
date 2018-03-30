@@ -82,16 +82,17 @@
             android:layout_marginTop="15dp"
             android:textColor="@color/colorTextIcons" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textColor="@color/colorTextIcons"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:text="Already Have an Account? Log In Here!"
+            android:text="Return to Log In"
+            android:padding="10dp"
             android:id="@+id/loginTextView"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="@color/button"
+            />
 
     </LinearLayout>
 
