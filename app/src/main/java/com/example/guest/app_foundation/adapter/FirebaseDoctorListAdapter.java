@@ -1,11 +1,13 @@
 package com.example.guest.app_foundation.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
 
 import com.example.guest.app_foundation.models.Doctor;
+import com.example.guest.app_foundation.ui.DoctorDetailActivity;
 import com.example.guest.app_foundation.util.ItemTouchHelperAdapter;
 import com.example.guest.app_foundation.util.OnStartDragListener;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -14,6 +16,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -87,6 +91,17 @@ public class FirebaseDoctorListAdapter extends FirebaseRecyclerAdapter<Doctor, F
                     mOnStartDragListener.onStartDrag(viewHolder);
                 }
                 return false;
+            }
+        });
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, DoctorDetailActivity.class);
+                intent.putExtra("position", viewHolder.getAdapterPosition());
+                intent.putExtra("doctors", Parcels.wrap(mDoctors));
+                mContext.startActivity(intent);
             }
         });
     }

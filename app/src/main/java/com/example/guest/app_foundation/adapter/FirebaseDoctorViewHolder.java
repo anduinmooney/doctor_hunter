@@ -32,14 +32,13 @@ public class FirebaseDoctorViewHolder extends RecyclerView.ViewHolder implements
 
     View mView;
     Context mContext;
-
     public ImageView mDoctorImageView;
 
     public FirebaseDoctorViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
+
     }
 
     public void bindDoctor(Doctor doctor) {
