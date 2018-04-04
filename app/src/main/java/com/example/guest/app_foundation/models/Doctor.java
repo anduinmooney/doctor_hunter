@@ -17,6 +17,7 @@ public class Doctor {
     private String bio;
     private String specialty;
     private String pushId;
+    String index;
 
     public Doctor(){}
 
@@ -35,6 +36,7 @@ public class Doctor {
         this.zip = zip;
         this.bio = bio;
         this.specialty = specialty;
+        this.index = "not_specified";
     }
 
     public String getFirstName() {
@@ -87,6 +89,14 @@ public class Doctor {
 
     public String getSpecialty() {
         return specialty;
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 
 }
