@@ -1,6 +1,6 @@
-# _Better Doctor Application Development: Week 3_
+# _Better Doctor Application Development: Week 4_
 
-#### _This is an application that shows doctors near you! Now featuring Firebase!_
+#### _This is an application that shows doctors near you!_
 
 #### By _**Anduin Mooney**_
 
