@@ -9,8 +9,13 @@ import com.example.guest.app_foundation.models.Doctor;
 import com.example.guest.app_foundation.util.ItemTouchHelperAdapter;
 import com.example.guest.app_foundation.util.OnStartDragListener;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
+
+import java.util.ArrayList;
 
 /**
  * Created by Guest on 4/4/18.
@@ -22,6 +27,9 @@ public class FirebaseDoctorListAdapter extends FirebaseRecyclerAdapter<Doctor, F
     private OnStartDragListener mOnStartDragListener;
     private Context mContext;
 
+    private ChildEventListener mChildEventListener;
+    private ArrayList<Doctor> mDoctors = new ArrayList<>();
+
     public FirebaseDoctorListAdapter(Class<Doctor> modelClass, int modelLayout,
                                          Class<FirebaseDoctorViewHolder> viewHolderClass,
                                          Query ref, OnStartDragListener onStartDragListener, Context context) {
@@ -30,6 +38,33 @@ public class FirebaseDoctorListAdapter extends FirebaseRecyclerAdapter<Doctor, F
         mRef = ref.getRef();
         mOnStartDragListener = onStartDragListener;
         mContext = context;
+
+        mChildEventListener = mRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                mDoctors.add(dataSnapshot.getValue(Doctor.class));
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
