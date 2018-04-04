@@ -45,7 +45,7 @@ public class SavedDoctorListActivity extends AppCompatActivity {
 
     private void setUpFirebaseAdapter() {
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Doctor, FirebaseDoctorViewHolder>
-                (Doctor.class, R.layout.doctor_list_layout, FirebaseDoctorViewHolder.class,
+                (Doctor.class, R.layout.doctor_list_layout_drag, FirebaseDoctorViewHolder.class,
                         mDoctorReference) {
 
             @Override
