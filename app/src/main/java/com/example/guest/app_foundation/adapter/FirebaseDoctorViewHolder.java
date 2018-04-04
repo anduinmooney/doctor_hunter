@@ -33,6 +33,8 @@ public class FirebaseDoctorViewHolder extends RecyclerView.ViewHolder implements
     View mView;
     Context mContext;
 
+    public ImageView mDoctorImageView;
+
     public FirebaseDoctorViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
@@ -41,7 +43,7 @@ public class FirebaseDoctorViewHolder extends RecyclerView.ViewHolder implements
     }
 
     public void bindDoctor(Doctor doctor) {
-        ImageView doctorImageView = (ImageView) mView.findViewById(R.id.doctorImageView);
+        mDoctorImageView = (ImageView) mView.findViewById(R.id.doctorImageView);
         TextView nameTextView = (TextView) mView.findViewById(R.id.doctorFirstNameTextView);
         TextView phoneTextView = (TextView) mView.findViewById(R.id.phoneTextView);
         TextView addressTextView = (TextView) mView.findViewById(R.id.addressTextView);
@@ -51,7 +53,7 @@ public class FirebaseDoctorViewHolder extends RecyclerView.ViewHolder implements
                 .load(doctor.getImageUrl())
                 .resize(MAX_WIDTH, MAX_HEIGHT)
                 .centerCrop()
-                .into(doctorImageView);
+                .into(mDoctorImageView);
 
         nameTextView.setText(doctor.getFirstName());
         phoneTextView.setText(doctor.getPhone());

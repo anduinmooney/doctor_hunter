@@ -1,6 +1,9 @@
 package com.example.guest.app_foundation.adapter;
 
 import android.content.Context;
+import android.support.v4.view.MotionEventCompat;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.example.guest.app_foundation.models.Doctor;
 import com.example.guest.app_foundation.util.ItemTouchHelperAdapter;
@@ -30,8 +33,17 @@ public class FirebaseDoctorListAdapter extends FirebaseRecyclerAdapter<Doctor, F
     }
 
     @Override
-    protected void populateViewHolder(FirebaseDoctorViewHolder viewHolder, Doctor model, int position) {
+    protected void populateViewHolder(final FirebaseDoctorViewHolder viewHolder, Doctor model, int position) {
         viewHolder.bindDoctor(model);
+        viewHolder.mDoctorImageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
+                    mOnStartDragListener.onStartDrag(viewHolder);
+                }
+                return false;
+            }
+        });
     }
 
     @Override

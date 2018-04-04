@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 
 public class SavedDoctorListActivity extends AppCompatActivity implements OnStartDragListener {
     private DatabaseReference mDoctorReference;
-    private FirebaseRecyclerAdapter mFirebaseAdapter;
+    private FirebaseDoctorListAdapter mFirebaseAdapter;
     private ItemTouchHelper mItemTouchHelper;
 
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
@@ -48,14 +48,15 @@ public class SavedDoctorListActivity extends AppCompatActivity implements OnStar
                 .getReference(Constants.FIREBASE_CHILD_DOCTORS)
                 .child(uid);
 
-        mFirebaseAdapter = new FirebaseDoctorListAdapter(Doctor.class, R.layout.doctor_list_layout_drag, FirebaseDoctorViewHolder.class, mDoctorReference, this, this);
+        mFirebaseAdapter = new FirebaseDoctorListAdapter(Doctor.class,
+                R.layout.doctor_list_layout_drag, FirebaseDoctorViewHolder.class,
+                mDoctorReference, this, this);
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mFirebaseAdapter);
 
         ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
-
         mItemTouchHelper = new ItemTouchHelper(callback);
         mItemTouchHelper.attachToRecyclerView(mRecyclerView);
     }
