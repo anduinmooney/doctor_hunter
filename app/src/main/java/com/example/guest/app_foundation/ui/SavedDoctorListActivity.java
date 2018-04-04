@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,8 +41,14 @@ public class SavedDoctorListActivity extends AppCompatActivity implements OnStar
     }
 
     private void setUpFirebaseAdapter() {
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
+
+        Query query = FirebaseDatabase.getInstance()
+                .getReference(Constants.FIREBASE_CHILD_DOCTORS)
+                .child(uid)
+                .orderByChild(Constants.FIREBASE_QUERY_INDEX);
 
         mDoctorReference = FirebaseDatabase
                 .getInstance()
@@ -50,7 +57,7 @@ public class SavedDoctorListActivity extends AppCompatActivity implements OnStar
 
         mFirebaseAdapter = new FirebaseDoctorListAdapter(Doctor.class,
                 R.layout.doctor_list_layout_drag, FirebaseDoctorViewHolder.class,
-                mDoctorReference, this, this);
+                query, this, this);
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
