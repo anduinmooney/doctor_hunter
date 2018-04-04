@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by Guest on 4/4/18.
@@ -67,6 +68,15 @@ public class FirebaseDoctorListAdapter extends FirebaseRecyclerAdapter<Doctor, F
         });
     }
 
+    private void setIndexInFirebase() {
+        for (Doctor doctor : mDoctors) {
+            int index = mDoctors.indexOf(doctor);
+            DatabaseReference ref = getRef(index);
+            doctor.setIndex(Integer.toString(index));
+            ref.setValue(doctor);
+        }
+    }
+
     @Override
     protected void populateViewHolder(final FirebaseDoctorViewHolder viewHolder, Doctor model, int position) {
         viewHolder.bindDoctor(model);
@@ -83,12 +93,21 @@ public class FirebaseDoctorListAdapter extends FirebaseRecyclerAdapter<Doctor, F
 
     @Override
     public boolean onItemMove(int fromPosition, int toPosition) {
+        Collections.swap(mDoctors, fromPosition, toPosition);
         notifyItemMoved(fromPosition, toPosition);
         return false;
     }
 
     @Override
     public void onItemDismiss(int position) {
+        mDoctors.remove(position);
         getRef(position).removeValue();
+    }
+
+    @Override
+    public void cleanup() {
+        super.cleanup();
+        setIndexInFirebase();
+        mRef.removeEventListener(mChildEventListener);
     }
 }
