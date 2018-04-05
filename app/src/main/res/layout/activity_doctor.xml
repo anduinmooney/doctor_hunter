@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/fragmentDoctorList"
-        android:name="com.example.guest.app_foundation.ui.SavedDoctorListFragment"
+        android:name="com.example.guest.app_foundation.ui.DoctorListFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:layout="@layout/fragment_doctor_list" />

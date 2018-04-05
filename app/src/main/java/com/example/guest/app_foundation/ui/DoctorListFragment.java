@@ -94,8 +94,7 @@ public class DoctorListFragment extends Fragment {
                     public void run() {
                         mAdapter = new DoctorListAdapter(getActivity(), mDoctors);
                         mRecyclerView.setAdapter(mAdapter);
-                        RecyclerView.LayoutManager layoutManager =
-                                new LinearLayoutManager(getActivity());
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
                     }
