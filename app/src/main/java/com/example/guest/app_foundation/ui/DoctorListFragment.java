@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.guest.app_foundation.Constants;
 import com.example.guest.app_foundation.R;
 import com.example.guest.app_foundation.adapter.DoctorListAdapter;
 import com.example.guest.app_foundation.models.Doctor;
@@ -20,6 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -34,7 +36,7 @@ public class DoctorListFragment extends Fragment {
     public ArrayList<Doctor> mDoctors = new ArrayList<>();
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
-    private String mRecentAddress;
+    private String mRecentLocation;
 
 
     public DoctorListFragment() {
@@ -48,7 +50,6 @@ public class DoctorListFragment extends Fragment {
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         mEditor = mSharedPreferences.edit();
 
-        // Instructs fragment to include menu options:
         setHasOptionsMenu(true);
     }
 
@@ -56,8 +57,16 @@ public class DoctorListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_doctor_list, container, false);
+        ButterKnife.bind(this, view);
 
-        return inflater.inflate(R.layout.fragment_doctor_list, container, false);
+        mRecentLocation = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+
+        if (mRecentLocation != null) {
+            getDoctors(mRecentLocation);
+        }
+
+        return view;
     }
 
     private void getDoctors(String location) {
