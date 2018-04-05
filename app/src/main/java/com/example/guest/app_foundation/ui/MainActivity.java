@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.viewListButton) Button mViewListButton;
     @BindView(R.id.appNameTextView) TextView mAppNameTextView;
     @BindView(R.id.savedDoctorsButton) Button mSavedDoctorsButton;
+    @BindView(R.id.aboutButton) Button mAboutButton;
+    @BindView(R.id.contactButton) Button mContactButton;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -43,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        mAboutButton.setOnClickListener(this);
+        mContactButton.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -94,12 +99,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mViewListButton) {
-
             Intent intent = new Intent(MainActivity.this, DoctorActivity.class);
             startActivity(intent);
         }
         if (v == mSavedDoctorsButton) {
             Intent intent = new Intent(MainActivity.this, SavedDoctorListActivity.class);
+            startActivity(intent);
+        }
+        if (v == mAboutButton) {
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
+        }
+        if (v == mContactButton) {
+            Intent intent = new Intent(MainActivity.this, ContactActivity.class);
             startActivity(intent);
         }
     }

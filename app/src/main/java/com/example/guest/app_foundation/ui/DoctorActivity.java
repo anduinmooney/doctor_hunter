@@ -45,27 +45,21 @@ import okhttp3.Response;
  */
 
 public class DoctorActivity extends AppCompatActivity {
-//    @BindView(R.id.aboutButton) Button mAboutButton;
-//    @BindView(R.id.contactButton) Button mContactButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor);
 //        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/DEFTONE.ttf");
-//        mAboutButton.setOnClickListener(this);
-//        mContactButton.setOnClickListener(this);
+
+
     }
 
 //    @Override
 //    public void onClick(View v) {
-//        if (v == mAboutButton) {
-//            Intent intent = new Intent(DoctorActivity.this, AboutActivity.class);
-//            startActivity(intent);
-//        } else if (v == mContactButton) {
-//            Intent intent = new Intent(DoctorActivity.this, ContactActivity.class);
-//            startActivity(intent);
-//        }
+//
 //
 //    }
+
 }

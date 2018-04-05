@@ -28,17 +28,16 @@
 
     <TextView
 
+        android:id="@+id/appWelcomeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/viewListButton"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="35dp"
+        android:layout_below="@+id/appNameTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
         android:text="Welcome!"
         android:textColor="@color/colorPrimary"
         android:textSize="40sp"
-        android:textStyle="bold"
-        android:id="@+id/appWelcomeTextView"
-        android:layout_centerHorizontal="true"/>
+        android:textStyle="bold" />
 
 
     <Button
@@ -65,6 +64,28 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
+
+    <Button
+        android:id="@+id/contactButton"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/viewListButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="11dp"
+        android:background="@color/colorAccent"
+        android:text="Contact"
+        android:textColor="@color/colorTextIcons" />
+
+    <Button
+        android:id="@+id/aboutButton"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/contactButton"
+        android:layout_alignBottom="@+id/contactButton"
+        android:layout_alignParentEnd="true"
+        android:background="@color/colorAccent"
+        android:text="About"
+        android:textColor="@color/colorTextIcons" />
 
 
 </RelativeLayout>
