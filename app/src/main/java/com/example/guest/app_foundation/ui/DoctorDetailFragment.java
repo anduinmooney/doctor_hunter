@@ -23,6 +23,8 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -45,13 +47,19 @@ public class DoctorDetailFragment extends Fragment implements View.OnClickListen
     @BindView(R.id.specialtyTextView) TextView mSpecialtyLabel;
     @BindView(R.id.saveDoctorButton) TextView mSaveDoctorButton;
 
+    private ArrayList<Doctor> mDoctors;
+    private int mPosition;
+
 
     private Doctor mDoctor;
 
-    public static DoctorDetailFragment newInstance(Doctor doctor) {
+    public static DoctorDetailFragment newInstance(ArrayList<Doctor> doctors, Integer position) {
         DoctorDetailFragment doctorDetailFragment = new DoctorDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("doctor", Parcels.wrap(doctor));
+
+        args.putParcelable(Constants.EXTRA_KEY_DOCTORS, Parcels.wrap(doctors));
+        args.putInt(Constants.EXTRA_KEY_POSITION, position);
+
         doctorDetailFragment.setArguments(args);
         return doctorDetailFragment;
     }

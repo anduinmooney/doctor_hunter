@@ -72,12 +72,12 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
             } else {
                 Intent intent = new Intent(mContext, DoctorDetailActivity.class);
                 intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
-                intent.putExtra(Constants.EXTRA_KEY_RESTAURANTS, Parcels.wrap(mDoctors));
+                intent.putExtra(Constants.EXTRA_KEY_DOCTORS, Parcels.wrap(mDoctors));
                 mContext.startActivity(intent);
             }
 
         }
-        
+
         public DoctorViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
