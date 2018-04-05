@@ -1,6 +1,7 @@
 package com.example.guest.app_foundation.ui;
 
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -21,6 +22,7 @@ import com.example.guest.app_foundation.R;
 import com.example.guest.app_foundation.adapter.DoctorListAdapter;
 import com.example.guest.app_foundation.models.Doctor;
 import com.example.guest.app_foundation.services.DoctorService;
+import com.example.guest.app_foundation.util.OnDoctorSelectedListener;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,6 +44,7 @@ public class DoctorListFragment extends Fragment {
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
     private String mRecentLocation;
+    private OnDoctorSelectedListener mOnDocterSelectedListener;
 
 
     public DoctorListFragment() {
@@ -74,6 +77,16 @@ public class DoctorListFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mOnDocterSelectedListener = (OnDoctorSelectedListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + e.getMessage());
+        }
+    }
+
     private void getDoctors(String location) {
         final DoctorService doctorService = new DoctorService();
         doctorService.findDoctors(location, new Callback() {
@@ -92,7 +105,7 @@ public class DoctorListFragment extends Fragment {
 
                     @Override
                     public void run() {
-                        mAdapter = new DoctorListAdapter(getActivity(), mDoctors);
+                        mAdapter = new DoctorListAdapter(getActivity(), mDoctors, mOnDocterSelectedListener);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
                         mRecyclerView.setLayoutManager(layoutManager);
