@@ -2,6 +2,7 @@ package com.example.guest.app_foundation.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -26,6 +27,8 @@ import com.example.guest.app_foundation.models.Doctor;
 import com.example.guest.app_foundation.services.DoctorService;
 import com.example.guest.app_foundation.R;
 import com.example.guest.app_foundation.util.OnDoctorSelectedListener;
+
+import org.parceler.Parcels;
 
 import butterknife.BindView;
 import okhttp3.Call;
@@ -55,6 +58,35 @@ public class DoctorActivity extends AppCompatActivity implements OnDoctorSelecte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor);
+
+        if (savedInstanceState != null) {
+
+            if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+                mPosition = savedInstanceState.getInt(Constants.EXTRA_KEY_POSITION);
+                mDoctors = Parcels.unwrap(savedInstanceState.getParcelable(Constants.EXTRA_KEY_DOCTORS));
+
+                if (mPosition != null && mDoctors != null) {
+                    Intent intent = new Intent(this, DoctorDetailActivity.class);
+                    intent.putExtra(Constants.EXTRA_KEY_POSITION, mPosition);
+                    intent.putExtra(Constants.EXTRA_KEY_DOCTORS, Parcels.wrap(mDoctors));
+                    startActivity(intent);
+                }
+
+            }
+
+        }
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        if (mPosition != null && mDoctors != null) {
+            outState.putInt(Constants.EXTRA_KEY_POSITION, mPosition);
+            outState.putParcelable(Constants.EXTRA_KEY_DOCTORS, Parcels.wrap(mDoctors));
+        }
+
     }
 
     @Override
@@ -62,7 +94,8 @@ public class DoctorActivity extends AppCompatActivity implements OnDoctorSelecte
         mPosition = position;
         mDoctors = doctors;
     }
-
-
-
 }
+
+
+
+
