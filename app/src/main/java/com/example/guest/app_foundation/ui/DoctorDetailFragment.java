@@ -47,11 +47,10 @@ public class DoctorDetailFragment extends Fragment implements View.OnClickListen
     @BindView(R.id.specialtyTextView) TextView mSpecialtyLabel;
     @BindView(R.id.saveDoctorButton) TextView mSaveDoctorButton;
 
+    private Doctor mDoctor;
     private ArrayList<Doctor> mDoctors;
     private int mPosition;
 
-
-    private Doctor mDoctor;
 
     public static DoctorDetailFragment newInstance(ArrayList<Doctor> doctors, Integer position) {
         DoctorDetailFragment doctorDetailFragment = new DoctorDetailFragment();
@@ -67,7 +66,7 @@ public class DoctorDetailFragment extends Fragment implements View.OnClickListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDoctor = Parcels.unwrap(getArguments().getParcelable(Constants.EXTRA_KEY_DOCTORS));
+        mDoctors = Parcels.unwrap(getArguments().getParcelable(Constants.EXTRA_KEY_DOCTORS));
         mPosition = getArguments().getInt(Constants.EXTRA_KEY_POSITION);
         mDoctor = mDoctors.get(mPosition);
     }

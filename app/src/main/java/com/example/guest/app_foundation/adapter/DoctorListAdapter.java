@@ -64,19 +64,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         private Context mContext;
         private int mOrientation;
 
-        @Override
-        public void onClick(View v) {
-            int itemPosition = getLayoutPosition();
-            if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-                createDetailFragment(itemPosition);
-            } else {
-                Intent intent = new Intent(mContext, DoctorDetailActivity.class);
-                intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
-                intent.putExtra(Constants.EXTRA_KEY_DOCTORS, Parcels.wrap(mDoctors));
-                mContext.startActivity(intent);
-            }
 
-        }
 
         public DoctorViewHolder(View itemView) {
             super(itemView);
@@ -91,6 +79,19 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
             }
         }
 
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                createDetailFragment(itemPosition);
+            } else {
+                Intent intent = new Intent(mContext, DoctorDetailActivity.class);
+                intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
+                intent.putExtra(Constants.EXTRA_KEY_DOCTORS, Parcels.wrap(mDoctors));
+                mContext.startActivity(intent);
+            }
+
+        }
 
         private void createDetailFragment(int position) {
             DoctorDetailFragment detailFragment = DoctorDetailFragment.newInstance(mDoctors, position);
