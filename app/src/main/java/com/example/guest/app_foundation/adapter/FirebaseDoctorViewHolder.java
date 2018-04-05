@@ -91,7 +91,7 @@ public class FirebaseDoctorViewHolder extends RecyclerView.ViewHolder implements
 
     @Override
     public void onItemSelected() {
-        
+
     }
 
     @Override
