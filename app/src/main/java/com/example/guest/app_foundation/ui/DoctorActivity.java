@@ -68,9 +68,9 @@ public class DoctorActivity extends AppCompatActivity implements View.OnClickLis
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-        if (mRecentAddress != null) {
-            getDoctors(mRecentAddress);
-        }
+//        if (mRecentAddress != null) {
+//            getDoctors(mRecentAddress);
+//        }
 
         mAboutButton.setOnClickListener(this);
         mContactButton.setOnClickListener(this);
@@ -78,8 +78,8 @@ public class DoctorActivity extends AppCompatActivity implements View.OnClickLis
         String location = intent.getStringExtra("location");
         String query = intent.getStringExtra("query");
 
-        getDoctors(location);
-        getDoctors(query);
+//        getDoctors(location);
+//        getDoctors(query);
 
 
     }
@@ -104,7 +104,7 @@ public class DoctorActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public boolean onQueryTextSubmit(String query) {
                 addToSharedPreferences(query);
-                getDoctors(query);
+//                getDoctors(query);
                 return false;
             }
 
@@ -120,35 +120,6 @@ public class DoctorActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
-    }
-
-    private void getDoctors(String location) {
-        final DoctorService doctorService = new DoctorService();
-        doctorService.findDoctors(location, new Callback() {
-
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-
-                    doctors = doctorService.processResults(response);
-                    DoctorActivity.this.runOnUiThread(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            mAdapter = new DoctorListAdapter(getApplicationContext(), doctors);
-                            mRecyclerView.setAdapter(mAdapter);
-                            RecyclerView.LayoutManager layoutManager =
-                                    new LinearLayoutManager(DoctorActivity.this);
-                            mRecyclerView.setLayoutManager(layoutManager);
-                            mRecyclerView.setHasFixedSize(true);
-                            }
-                        });
-            }
-        });
     }
 
     @Override
