@@ -51,15 +51,11 @@ public class DoctorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor);
-//        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/DEFTONE.ttf");
+
 
 
     }
 
-//    @Override
-//    public void onClick(View v) {
-//
-//
-//    }
+
 
 }
