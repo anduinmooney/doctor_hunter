@@ -14,6 +14,7 @@ import com.example.guest.app_foundation.adapter.FirebaseDoctorListAdapter;
 import com.example.guest.app_foundation.util.OnStartDragListener;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,8 +35,10 @@ public class SavedDoctorListFragment extends Fragment implements OnStartDragList
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_saved_doctor_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_saved_doctor_list, container, false);
+        ButterKnife.bind(this, view);
+        setUpFirebaseAdapter();
+        return view;
     }
 
 }
