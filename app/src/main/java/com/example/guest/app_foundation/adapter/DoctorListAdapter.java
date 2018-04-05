@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.guest.app_foundation.Constants;
 import com.example.guest.app_foundation.R;
 import com.example.guest.app_foundation.models.Doctor;
 import com.example.guest.app_foundation.ui.DoctorDetailActivity;
@@ -66,14 +67,17 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         @Override
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
-            Intent intent = new Intent(mContext, DoctorDetailActivity.class);
-            intent.putExtra("position", itemPosition);
-            intent.putExtra("doctors", Parcels.wrap(mDoctors));
-            mContext.startActivity(intent);
+            if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                createDetailFragment(itemPosition);
+            } else {
+                Intent intent = new Intent(mContext, DoctorDetailActivity.class);
+                intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
+                intent.putExtra(Constants.EXTRA_KEY_RESTAURANTS, Parcels.wrap(mDoctors));
+                mContext.startActivity(intent);
+            }
+
         }
-
-
-
+        
         public DoctorViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
