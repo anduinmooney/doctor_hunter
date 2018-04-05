@@ -47,7 +47,7 @@ import okhttp3.Response;
 
 public class DoctorActivity extends AppCompatActivity implements OnDoctorSelectedListener {
 
-    private Integer mPostion;
+    private Integer mPosition;
     ArrayList<Doctor> mDoctors;
 
 
@@ -55,9 +55,12 @@ public class DoctorActivity extends AppCompatActivity implements OnDoctorSelecte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor);
+    }
 
-
-
+    @Override
+    public void onDoctorSelected(Integer position, ArrayList<Doctor> doctors) {
+        mPosition = position;
+        mDoctors = doctors;
     }
 
 
