@@ -3,6 +3,7 @@ package com.example.guest.app_foundation.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -61,36 +62,36 @@ public class FirebaseDoctorViewHolder extends RecyclerView.ViewHolder implements
         lastNameTextView.setText(doctor.getLastName());
     }
 
-    @Override
-    public void onClick(View view) {
-        final ArrayList<Doctor> doctors = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_DOCTORS);
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    doctors.add(snapshot.getValue(Doctor.class));
-                }
-
-                int itemPosition = getLayoutPosition();
-
-                Intent intent = new Intent(mContext, DoctorDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("doctors", Parcels.wrap(doctors));
-
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-    }
+//    @Override
+//    public void onClick(View view) {
+//        final ArrayList<Doctor> doctors = new ArrayList<>();
+//        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_DOCTORS);
+//        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+//
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    doctors.add(snapshot.getValue(Doctor.class));
+//                }
+//
+//                int itemPosition = getLayoutPosition();
+//
+//                Intent intent = new Intent(mContext, DoctorDetailActivity.class);
+//                intent.putExtra("position", itemPosition + "");
+//                intent.putExtra("doctors", Parcels.wrap(doctors));
+//
+//                mContext.startActivity(intent);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//            }
+//        });
+//    }
 
     @Override
     public void onItemSelected() {
-
+        
     }
 
     @Override
