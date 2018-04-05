@@ -2,12 +2,17 @@ package com.example.guest.app_foundation.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.example.guest.app_foundation.R;
 import com.example.guest.app_foundation.models.Doctor;
 import com.example.guest.app_foundation.ui.DoctorDetailActivity;
+import com.example.guest.app_foundation.ui.DoctorDetailFragment;
 import com.example.guest.app_foundation.util.ItemTouchHelperAdapter;
 import com.example.guest.app_foundation.util.OnStartDragListener;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -34,6 +39,8 @@ public class FirebaseDoctorListAdapter extends FirebaseRecyclerAdapter<Doctor, F
 
     private ChildEventListener mChildEventListener;
     private ArrayList<Doctor> mDoctors = new ArrayList<>();
+
+    private int mOrientation;
 
     public FirebaseDoctorListAdapter(Class<Doctor> modelClass, int modelLayout,
                                          Class<FirebaseDoctorViewHolder> viewHolderClass,
@@ -84,6 +91,12 @@ public class FirebaseDoctorListAdapter extends FirebaseRecyclerAdapter<Doctor, F
     @Override
     protected void populateViewHolder(final FirebaseDoctorViewHolder viewHolder, Doctor model, int position) {
         viewHolder.bindDoctor(model);
+
+        mOrientation = viewHolder.itemView.getResources().getConfiguration().orientation;
+        if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+            createDetailFragment(0);
+        }
+
         viewHolder.mDoctorImageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -104,6 +117,13 @@ public class FirebaseDoctorListAdapter extends FirebaseRecyclerAdapter<Doctor, F
                 mContext.startActivity(intent);
             }
         });
+    }
+
+    private void createDetailFragment(int position) {
+        DoctorDetailFragment detailFragment = DoctorDetailFragment.newInstance(mDoctors, position);
+        FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.doctorDetailContainer, detailFragment);
+        ft.commit();
     }
 
     @Override
