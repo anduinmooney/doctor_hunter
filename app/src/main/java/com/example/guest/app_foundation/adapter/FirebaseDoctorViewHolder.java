@@ -1,5 +1,7 @@
 package com.example.guest.app_foundation.adapter;
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -91,11 +93,19 @@ public class FirebaseDoctorViewHolder extends RecyclerView.ViewHolder implements
 
     @Override
     public void onItemSelected() {
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext,
+                R.animator.drag_scale_on);
+        set.setTarget(itemView);
+        set.start();
 
     }
 
     @Override
     public void onItemClear() {
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext,
+                R.animator.drag_scale_off);
+        set.setTarget(itemView);
+        set.start();
 
     }
 }
