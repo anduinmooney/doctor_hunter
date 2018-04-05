@@ -9,6 +9,7 @@ import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.example.guest.app_foundation.Constants;
 import com.example.guest.app_foundation.R;
 import com.example.guest.app_foundation.models.Doctor;
 import com.example.guest.app_foundation.ui.DoctorDetailActivity;
@@ -111,10 +112,15 @@ public class FirebaseDoctorListAdapter extends FirebaseRecyclerAdapter<Doctor, F
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, DoctorDetailActivity.class);
-                intent.putExtra("position", viewHolder.getAdapterPosition());
-                intent.putExtra("doctors", Parcels.wrap(mDoctors));
-                mContext.startActivity(intent);
+                int itemPosition = viewHolder.getAdapterPosition();
+                if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    createDetailFragment(itemPosition);
+                } else {
+                    Intent intent = new Intent(mContext, DoctorDetailActivity.class);
+                    intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
+                    intent.putExtra(Constants.EXTRA_KEY_DOCTORS, Parcels.wrap(mDoctors));
+                    mContext.startActivity(intent);
+                }
             }
         });
     }
