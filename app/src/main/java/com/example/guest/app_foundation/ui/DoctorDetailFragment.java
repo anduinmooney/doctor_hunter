@@ -67,7 +67,9 @@ public class DoctorDetailFragment extends Fragment implements View.OnClickListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDoctor = Parcels.unwrap(getArguments().getParcelable("doctor"));
+        mDoctor = Parcels.unwrap(getArguments().getParcelable(Constants.EXTRA_KEY_DOCTORS));
+        mPosition = getArguments().getInt(Constants.EXTRA_KEY_POSITION);
+        mDoctor = mDoctors.get(mPosition);
     }
 
 
