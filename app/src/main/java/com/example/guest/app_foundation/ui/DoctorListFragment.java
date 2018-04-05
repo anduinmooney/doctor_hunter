@@ -136,4 +136,8 @@ public class DoctorListFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
+    private void addToSharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
+    }
+
 }

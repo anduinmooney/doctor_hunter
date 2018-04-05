@@ -96,9 +96,7 @@ public class DoctorActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    private void addToSharedPreferences(String location) {
-        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
-    }
+
 
 
 }
