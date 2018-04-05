@@ -66,25 +66,30 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         @BindView(R.id.phoneTextView) TextView mPhoneTextView;
         private Context mContext;
         private int mOrientation;
+        private ArrayList<Doctor> mDoctors = new ArrayList<>();
+        private OnDoctorSelectedListener mDoctorSelectedListener;
 
 
 
-        public DoctorViewHolder(View itemView) {
+        public DoctorViewHolder(View itemView, ArrayList<Doctor> doctors, OnDoctorSelectedListener doctorSelectedListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            mContext = itemView.getContext();
-            itemView.setOnClickListener(this);
 
+            mContext = itemView.getContext();
             mOrientation = itemView.getResources().getConfiguration().orientation;
+            mDoctors = doctors;
+            mDoctorSelectedListener = doctorSelectedListener;
 
             if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 createDetailFragment(0);
             }
+            itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
+            mDoctorSelectedListener.onDoctorSelected(itemPosition, mDoctors);
             if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 createDetailFragment(itemPosition);
             } else {
