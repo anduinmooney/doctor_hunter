@@ -3,6 +3,9 @@ package com.example.guest.app_foundation.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +16,7 @@ import android.widget.TextView;
 import com.example.guest.app_foundation.R;
 import com.example.guest.app_foundation.models.Doctor;
 import com.example.guest.app_foundation.ui.DoctorDetailActivity;
+import com.example.guest.app_foundation.ui.DoctorDetailFragment;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -57,6 +61,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
         @BindView(R.id.addressTextView) TextView mAddressTextView;
         @BindView(R.id.phoneTextView) TextView mPhoneTextView;
         private Context mContext;
+        private int mOrientation;
 
         @Override
         public void onClick(View v) {
@@ -74,6 +79,20 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
             itemView.setOnClickListener(this);
+
+            mOrientation = itemView.getResources().getConfiguration().orientation;
+
+            if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                createDetailFragment(0);
+            }
+        }
+
+
+        private void createDetailFragment(int position) {
+            DoctorDetailFragment detailFragment = DoctorDetailFragment.newInstance(mDoctors, position);
+            FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.doctorDetailContainer, detailFragment);
+            ft.commit();
         }
 
         public void bindDoctor(Doctor doctor) {
