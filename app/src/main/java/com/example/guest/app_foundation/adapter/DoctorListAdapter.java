@@ -18,6 +18,7 @@ import com.example.guest.app_foundation.R;
 import com.example.guest.app_foundation.models.Doctor;
 import com.example.guest.app_foundation.ui.DoctorDetailActivity;
 import com.example.guest.app_foundation.ui.DoctorDetailFragment;
+import com.example.guest.app_foundation.util.OnDoctorSelectedListener;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -32,16 +33,18 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.Do
     private static final int MAX_HEIGHT = 200;
     private ArrayList<Doctor> mDoctors = new ArrayList<>();
     private Context mContext;
+    private OnDoctorSelectedListener mOnDoctorSelectedListener;
 
-    public DoctorListAdapter(Context context, ArrayList<Doctor> doctors) {
+    public DoctorListAdapter(Context context, ArrayList<Doctor> doctors, OnDoctorSelectedListener doctorSelectedListener) {
         mContext = context;
         mDoctors = doctors;
+        mOnDoctorSelectedListener = doctorSelectedListener;
     }
 
     @Override
     public DoctorListAdapter.DoctorViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.doctor_list_layout, parent, false);
-        DoctorViewHolder viewHolder = new DoctorViewHolder(view);
+        DoctorViewHolder viewHolder = new DoctorViewHolder(view, mDoctors, mOnDoctorSelectedListener);
         return viewHolder;
     }
 
