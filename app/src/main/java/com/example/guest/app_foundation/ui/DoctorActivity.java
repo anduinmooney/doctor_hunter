@@ -25,6 +25,7 @@ import com.example.guest.app_foundation.adapter.DoctorListAdapter;
 import com.example.guest.app_foundation.models.Doctor;
 import com.example.guest.app_foundation.services.DoctorService;
 import com.example.guest.app_foundation.R;
+import com.example.guest.app_foundation.util.OnDoctorSelectedListener;
 
 import butterknife.BindView;
 import okhttp3.Call;
@@ -44,7 +45,10 @@ import okhttp3.Response;
  * Created by Anduin on 3/16/2018.
  */
 
-public class DoctorActivity extends AppCompatActivity {
+public class DoctorActivity extends AppCompatActivity implements OnDoctorSelectedListener {
+
+    private Integer mPostion;
+    ArrayList<Doctor> mDoctors;
 
 
     @Override
