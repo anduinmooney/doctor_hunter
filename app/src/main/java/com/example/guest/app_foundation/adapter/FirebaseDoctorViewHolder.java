@@ -64,33 +64,6 @@ public class FirebaseDoctorViewHolder extends RecyclerView.ViewHolder implements
         lastNameTextView.setText(doctor.getLastName());
     }
 
-//    @Override
-//    public void onClick(View view) {
-//        final ArrayList<Doctor> doctors = new ArrayList<>();
-//        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_DOCTORS);
-//        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-//
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    doctors.add(snapshot.getValue(Doctor.class));
-//                }
-//
-//                int itemPosition = getLayoutPosition();
-//
-//                Intent intent = new Intent(mContext, DoctorDetailActivity.class);
-//                intent.putExtra("position", itemPosition + "");
-//                intent.putExtra("doctors", Parcels.wrap(doctors));
-//
-//                mContext.startActivity(intent);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//            }
-//        });
-//    }
-
     @Override
     public void onItemSelected() {
         AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext,
