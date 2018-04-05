@@ -11,6 +11,7 @@ import com.example.guest.app_foundation.Constants;
 import com.example.guest.app_foundation.R;
 import com.example.guest.app_foundation.models.Doctor;
 import com.example.guest.app_foundation.ui.DoctorDetailActivity;
+import com.example.guest.app_foundation.util.ItemTouchHelperViewHolder;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,7 +27,7 @@ import java.util.ArrayList;
  * Created by Guest on 3/29/18.
  */
 
-public class FirebaseDoctorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseDoctorViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
 
@@ -85,5 +86,15 @@ public class FirebaseDoctorViewHolder extends RecyclerView.ViewHolder implements
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+    }
+
+    @Override
+    public void onItemSelected() {
+
+    }
+
+    @Override
+    public void onItemClear() {
+
     }
 }
