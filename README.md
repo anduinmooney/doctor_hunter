@@ -6,7 +6,7 @@
 
 ## Description
 
-_This is a WIP application that will grab the users location and show doctors in their area using the BetterDoctor API, along with Firebase_
+_This is the final build of Doctor Hunter, an app that allows you to search for registered doctors in your local area_
 
 ## App Specifications & Development Details
 
@@ -35,7 +35,7 @@ _As I mentioned above, this project is going to have a 4 week development cycle,
 ## Known Bugs
 
 
-_No bugs are known. Adding a search view fixed my issues with getting the API call to work 100% of the time, not entirely sure why as of yet, but I can't complain_
+_No bugs are known.
 
 
 ## Support and contact details
