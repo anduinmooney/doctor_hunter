@@ -35,7 +35,7 @@ _As I mentioned above, this project is going to have a 4 week development cycle,
 ## Known Bugs
 
 
-_No bugs are known.
+_No bugs are known._
 
 
 ## Support and contact details
